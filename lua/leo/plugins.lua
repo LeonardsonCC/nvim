@@ -6,6 +6,8 @@ return require('packer').startup(function()
     'williamboman/nvim-lsp-installer',
   }
 
+  use 'glepnir/dashboard-nvim'
+
   use {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',
