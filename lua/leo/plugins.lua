@@ -7,6 +7,8 @@ return require('packer').startup(function()
     'simrat39/symbols-outline.nvim',
   }
 
+  use 'b3nj5m1n/kommentary'
+
   use 'glepnir/dashboard-nvim'
 
   use {
