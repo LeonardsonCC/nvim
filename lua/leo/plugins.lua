@@ -11,6 +11,8 @@ return require('packer').startup(function()
 
   use 'glepnir/dashboard-nvim'
 
+  use 'oberblastmeister/termwrapper.nvim'
+
   use {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-buffer',

@@ -16,7 +16,9 @@ vim.api.nvim_set_keymap("n", "<Leader>Y", 'gg"+yG', { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>gs", ":Git<CR>", { noremap = true })
 
 -- Terminal
-vim.api.nvim_set_keymap("n", "<Leader>t", ":terminal<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "<Leader>t", ":Ttoggle<CR>", { noremap = true })
+vim.api.nvim_set_keymap("t", "jk", "<C-\\><C-n>", { noremap = true })
+vim.api.nvim_set_keymap("t", "kj", "<C-\\><C-n>", { noremap = true })
 vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", { noremap = true })
 
 -- Buffer
