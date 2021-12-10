@@ -4,6 +4,7 @@ return require('packer').startup(function()
   use {
     'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
+    'simrat39/symbols-outline.nvim',
   }
 
   use 'glepnir/dashboard-nvim'
