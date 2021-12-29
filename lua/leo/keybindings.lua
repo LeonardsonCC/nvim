@@ -34,3 +34,8 @@ vim.api.nvim_set_keymap("x", "<leader>ci", "<Plug>kommentary_visual_increase", {
 vim.api.nvim_set_keymap("n", "<leader>cdc", "<Plug>kommentary_line_decrease", {})
 vim.api.nvim_set_keymap("n", "<leader>cd", "<Plug>kommentary_motion_decrease", {})
 vim.api.nvim_set_keymap("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {})
+
+-- Rest Client
+vim.api.nvim_set_keymap("n", "<leader>rr", "<Plug>RestNvim", {})
+vim.api.nvim_set_keymap("n", "<leader>rp", "<Plug>RestNvimPreview", {})
+vim.api.nvim_set_keymap("n", "<leader>rl", "<Plug>RestNvimLast", {})
