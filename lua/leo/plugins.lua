@@ -35,6 +35,16 @@ return require('packer').startup(function()
     end
   }
 
+  use {
+    'sudormrfbin/cheatsheet.nvim',
+
+    requires = {
+      {'nvim-telescope/telescope.nvim'},
+      {'nvim-lua/popup.nvim'},
+      {'nvim-lua/plenary.nvim'},
+    }
+  }
+
   use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
 
   use 'b3nj5m1n/kommentary'
