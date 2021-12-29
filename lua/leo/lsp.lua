@@ -10,5 +10,6 @@ vim.api.nvim_set_keymap("n", "gr", ":lua vim.lsp.buf.references()<CR>", { norema
 vim.api.nvim_set_keymap("i", "<C-space>", "compe#complete()", { expr=true, noremap = true, silent = true })
 
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.gopls.setup{}
 
 vim.api.nvim_command("let g:neoformat_enabled_javascript = ['prettier']")
