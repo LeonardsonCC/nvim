@@ -39,3 +39,6 @@ vim.api.nvim_set_keymap("x", "<leader>cd", "<Plug>kommentary_visual_decrease", {
 vim.api.nvim_set_keymap("n", "<leader>rr", "<Plug>RestNvim", {})
 vim.api.nvim_set_keymap("n", "<leader>rp", "<Plug>RestNvimPreview", {})
 vim.api.nvim_set_keymap("n", "<leader>rl", "<Plug>RestNvimLast", {})
+
+-- Symbols Outline
+vim.api.nvim_set_keymap("n", "<leader>st", ":SymbolsOutline<CR>", {})
