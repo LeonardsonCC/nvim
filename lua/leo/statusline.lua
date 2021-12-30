@@ -37,8 +37,8 @@ local conditions = {
 local config = {
   options = {
     -- Disable sections and component separators
-    component_separators = '',
-    section_separators = '',
+    component_separators = '|',
+    section_separators = '|',
     theme = {
       -- We are going to use lualine_c an lualine_x as left and
       -- right section. Both are highlighted by c theme .  So we
@@ -113,7 +113,7 @@ ins_left {
       t = colors.red,
     }
     vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
-    return ''
+    return ''
   end,
   color = 'LualineMode',
   padding = { right = 1 },
@@ -132,8 +132,6 @@ ins_left {
 }
 
 ins_left { 'location' }
-
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
 ins_left {
   'diagnostics',
