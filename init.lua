@@ -11,5 +11,7 @@ require('leo.termwrapper')
 require('leo.luatab')
 require('leo.null_ls')
 
+require('go').setup()
+
 vim.g.material_style = "deep ocean"
 vim.cmd 'colorscheme material'
