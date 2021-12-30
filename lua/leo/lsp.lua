@@ -9,9 +9,17 @@ vim.api.nvim_set_keymap("n", "gD", ":lua vim.lsp.buf.declaration()<CR>", { norem
 vim.api.nvim_set_keymap("n", "gr", ":lua vim.lsp.buf.references()<CR>", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-space>", "compe#complete()", { expr=true, noremap = true, silent = true })
 
-require'lspconfig'.tsserver.setup{}
+local on_attach = function (client)
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
+end
+
+require'lspconfig'.tsserver.setup{
+  on_attach = on_attach
+}
 require'lspconfig'.gopls.setup{
-  cmd = { "/home/leonardson/go/bin/gopls" }
+  cmd = { "/home/leonardson/go/bin/gopls" },
+  on_attach = on_attach
 }
 
 vim.api.nvim_command("let g:neoformat_enabled_javascript = ['prettier']")

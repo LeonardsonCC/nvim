@@ -9,6 +9,7 @@ require('leo.dashboard')
 require('leo.symbols_outline')
 require('leo.termwrapper')
 require('leo.luatab')
+require('leo.null_ls')
 
 vim.g.material_style = "deep ocean"
 vim.cmd 'colorscheme material'

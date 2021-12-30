@@ -95,4 +95,6 @@ return require('packer').startup(function()
   }
 
   use 'marko-cerovac/material.nvim'
+
+  use 'jose-elias-alvarez/null-ls.nvim'
 end)
