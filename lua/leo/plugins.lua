@@ -99,4 +99,12 @@ return require('packer').startup(function()
   use 'jose-elias-alvarez/null-ls.nvim'
 
   use 'ray-x/go.nvim'
+
+  use {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+      {"nvim-lua/plenary.nvim"},
+      {"nvim-treesitter/nvim-treesitter"}
+    }
+  }
 end)

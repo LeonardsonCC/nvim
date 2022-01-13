@@ -10,8 +10,10 @@ require('leo.symbols_outline')
 require('leo.termwrapper')
 require('leo.luatab')
 require('leo.null_ls')
+require('leo.refactoring')
 
 require('go').setup()
 
-vim.g.material_style = "deep ocean"
+-- vim.g.material_style = "deep ocean"
+vim.g.material_style = "lighter"
 vim.cmd 'colorscheme material'
