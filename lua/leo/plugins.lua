@@ -107,4 +107,6 @@ return require('packer').startup(function()
       {"nvim-treesitter/nvim-treesitter"}
     }
   }
+
+  use "preservim/nerdcommenter"
 end)
