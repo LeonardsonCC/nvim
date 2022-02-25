@@ -47,8 +47,6 @@ return require('packer').startup(function()
 
   use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
 
-  use 'b3nj5m1n/kommentary'
-
   use 'glepnir/dashboard-nvim'
 
   use 'oberblastmeister/termwrapper.nvim'
@@ -95,18 +93,17 @@ return require('packer').startup(function()
   }
 
   use 'marko-cerovac/material.nvim'
+  use 'gruvbox-community/gruvbox'
 
   use 'jose-elias-alvarez/null-ls.nvim'
 
   use 'ray-x/go.nvim'
 
-  use {
-    "ThePrimeagen/refactoring.nvim",
-    requires = {
-      {"nvim-lua/plenary.nvim"},
-      {"nvim-treesitter/nvim-treesitter"}
-    }
-  }
-
   use "preservim/nerdcommenter"
+
+  -- Note taking
+  use 'renerocksai/telekasten.nvim'
+  use 'renerocksai/calendar-vim'
+
+  use 'github/copilot.vim'
 end)

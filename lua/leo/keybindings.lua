@@ -2,6 +2,9 @@
 vim.api.nvim_set_keymap("i", "jk", "<Esc>", { noremap = true })
 vim.api.nvim_set_keymap("i", "kj", "<Esc>", { noremap = true })
 
+-- Ctrl Backspace to delete word
+vim.api.nvim_set_keymap("i", "<C-BS>", "<C-\\><C-o>db", { noremap = true })
+
 -- Source current file
 vim.api.nvim_set_keymap("n", "<Leader><Enter>", ":source $MYVIMRC<CR>", { noremap = true })
 vim.api.nvim_set_keymap("n", "<Leader>c<Enter>", ":source %<CR>", { noremap = true })
@@ -42,3 +45,7 @@ vim.api.nvim_set_keymap("n", "<leader>rl", "<Plug>RestNvimLast", {})
 
 -- Symbols Outline
 vim.api.nvim_set_keymap("n", "<leader>st", ":SymbolsOutline<CR>", {})
+
+-- Telekasten
+vim.api.nvim_set_keymap("n", "<leader>n", ":Telekasten<CR>", {})
+
