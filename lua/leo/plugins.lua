@@ -43,8 +43,7 @@ return require('packer').startup(function()
   }
 
   use {
-    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' },
-    config = function() require('gitsigns').setup() end
+    'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }
   }
 
   use {
@@ -55,9 +54,9 @@ return require('packer').startup(function()
     config = function() require'nvim-tree'.setup {} end
   }
 
-  use 'marko-cerovac/material.nvim'
+  use 'chriskempson/base16-vim'
   use 'gruvbox-community/gruvbox'
-
+  use 'luisiacc/gruvbox-baby'
 
 
   -- [G]old
