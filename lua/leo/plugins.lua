@@ -1,55 +1,14 @@
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
 
+  -- Autocomplete
   use {
     'neovim/nvim-lspconfig',
     'williamboman/nvim-lsp-installer',
     'simrat39/symbols-outline.nvim',
+    'onsails/lspkind-nvim',
+    'glepnir/lspsaga.nvim',
   }
-
-  use {
-    "NTBBloodbath/rest.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("rest-nvim").setup({
-        -- Open request results in a horizontal split
-        result_split_horizontal = false,
-        -- Skip SSL verification, useful for unknown certificates
-        skip_ssl_verification = false,
-        -- Highlight request on run
-        highlight = {
-          enabled = true,
-          timeout = 150,
-        },
-        result = {
-          -- toggle showing URL, HTTP info, headers at top the of result window
-          show_url = true,
-          show_http_info = true,
-          show_headers = true,
-        },
-        -- Jump to request line on run
-        jump_to_request = false,
-        env_file = '.env',
-        custom_dynamic_variables = {},
-      })
-    end
-  }
-
-  use {
-    'sudormrfbin/cheatsheet.nvim',
-
-    requires = {
-      {'nvim-telescope/telescope.nvim'},
-      {'nvim-lua/popup.nvim'},
-      {'nvim-lua/plenary.nvim'},
-    }
-  }
-
-  use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
-
-  use 'glepnir/dashboard-nvim'
-
-  use 'oberblastmeister/termwrapper.nvim'
 
   use {
     'hrsh7th/cmp-nvim-lsp',
@@ -61,18 +20,22 @@ return require('packer').startup(function()
     'hrsh7th/vim-vsnip'
   }
 
+  -- Code colors
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+
+
+  -- Style
+
+  use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
+
+  use 'glepnir/dashboard-nvim'
+
   use 'sbdchd/neoformat'
 
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = 'nvim-lua/plenary.nvim'
   }
-
-  use 'tpope/vim-fugitive'
-
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   use {
     'nvim-lualine/lualine.nvim',
@@ -95,15 +58,18 @@ return require('packer').startup(function()
   use 'marko-cerovac/material.nvim'
   use 'gruvbox-community/gruvbox'
 
-  use 'jose-elias-alvarez/null-ls.nvim'
 
-  use 'ray-x/go.nvim'
+
+  -- [G]old
+  use 'tpope/vim-fugitive'
 
   use "preservim/nerdcommenter"
 
-  -- Note taking
-  use 'renerocksai/telekasten.nvim'
-  use 'renerocksai/calendar-vim'
-
+  -- Copilot because I'm useless
   use 'github/copilot.vim'
+
+  use {
+    'norcalli/nvim-colorizer.lua',
+    config = function() require('nvim-colorizer').setup('*') end
+  }
 end)

@@ -37,15 +37,9 @@ local conditions = {
 local config = {
   options = {
     -- Disable sections and component separators
-    component_separators = '|',
-    section_separators = '|',
-    theme = {
-      -- We are going to use lualine_c an lualine_x as left and
-      -- right section. Both are highlighted by c theme .  So we
-      -- are just setting default looks o statusline
-      normal = { c = { fg = colors.fg, bg = colors.bg } },
-      inactive = { c = { fg = colors.fg, bg = colors.bg } },
-    },
+    component_separators = '',
+    section_separators = ' ',
+    theme = 'gruvbox',
   },
   sections = {
     -- these are to remove the defaults
@@ -82,7 +76,6 @@ ins_left {
   function()
     return '▊'
   end,
-  color = { fg = colors.blue }, -- Sets highlighting of component
   padding = { left = 0, right = 1 }, -- We don't need space before this
 }
 
@@ -113,22 +106,15 @@ ins_left {
       t = colors.red,
     }
     vim.api.nvim_command('hi! LualineMode guifg=' .. mode_color[vim.fn.mode()] .. ' guibg=' .. colors.bg)
-    return ''
+    return ''
   end,
   color = 'LualineMode',
   padding = { right = 1 },
 }
 
 ins_left {
-  -- filesize component
-  'filesize',
-  cond = conditions.buffer_not_empty,
-}
-
-ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = 'bold' },
 }
 
 ins_left { 'location' }
@@ -155,7 +141,7 @@ ins_left {
 ins_left {
   -- Lsp server name .
   function()
-    local msg = 'No Active Lsp'
+    local msg = 'No LSP'
     local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
     local clients = vim.lsp.get_active_clients()
     if next(clients) == nil then
@@ -169,38 +155,22 @@ ins_left {
     end
     return msg
   end,
-  icon = ' LSP:',
+  icon = 'LSP:',
   color = { fg = '#ffffff', gui = 'bold' },
-}
-
--- Add components to right sections
-ins_right {
-  'o:encoding', -- option component same as &encoding in viml
-  fmt = string.upper, -- I'm not sure why it's upper case either ;)
-  cond = conditions.hide_in_width,
-  color = { fg = colors.green, gui = 'bold' },
-}
-
-ins_right {
-  'fileformat',
-  fmt = string.upper,
-  icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-  color = { fg = colors.green, gui = 'bold' },
 }
 
 ins_right {
   'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
+  color = { gui = 'bold' },
 }
 
 ins_right {
   'diff',
   -- Is it me or the symbol for modified us really weird
-  symbols = { added = ' ', modified = '柳 ', removed = ' ' },
+  symbols = { added = '+ ', modified = '~ ', removed = '- ' },
   diff_color = {
     added = { fg = colors.green },
-    modified = { fg = colors.orange },
+    modified = { fg = colors.yellow },
     removed = { fg = colors.red },
   },
   cond = conditions.hide_in_width,
@@ -210,9 +180,7 @@ ins_right {
   function()
     return '▊'
   end,
-  color = { fg = colors.blue },
   padding = { left = 1 },
 }
 
--- Now don't forget to initialize lualine
 lualine.setup(config)

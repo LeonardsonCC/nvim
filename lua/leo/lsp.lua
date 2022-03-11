@@ -15,15 +15,22 @@ local on_attach = function (client)
   client.resolved_capabilities.document_range_formatting = false
 end
 
-require'lspconfig'.tsserver.setup{
-  on_attach = on_attach
-}
-require'lspconfig'.gopls.setup{
-  cmd = { "/home/leonardson/go/bin/gopls" },
-  on_attach = on_attach
-}
+local lsp = require('lspconfig')
 
--- Autoimport Go
--- vim.api.nvim_exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
+lsp.tsserver.setup{
+  on_attach = on_attach
+}
+lsp.gopls.setup{
+  cmd = { "/home/leonardson/go/bin/gopls" },
+  on_attach = on_attach,
+  settings = {
+		gopls = {
+			analyses = {
+				unusedparams = true,
+			},
+			staticcheck = true,
+		},
+	},
+}
 
 vim.api.nvim_command("let g:neoformat_enabled_javascript = ['prettier']")

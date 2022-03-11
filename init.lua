@@ -6,13 +6,6 @@ require('leo.lsp')
 require('leo.telescope')
 require('leo.cmp')
 require('leo.dashboard')
-require('leo.symbols_outline')
-require('leo.termwrapper')
-require('leo.luatab')
--- require('leo.null_ls')
-require('leo.telekasten')
 
-require('go').setup()
-
-vim.cmd 'let g:gruvbox_contrast_dark="hard"'
-vim.cmd 'colorscheme gruvbox'
+vim.cmd('let g:gruvbox_contrast_dark="hard"')
+vim.cmd('colorscheme gruvbox')
