@@ -62,7 +62,7 @@ cmp.setup {
   formatting = {
     fields = { 'kind', 'abbr', 'menu' },
     format = function(entry, vim_item)
-      local kind = lspkind.cmp_format { mode = 'symbol_text', maxwidth = 50 }(entry, vim_item)
+      local kind = lspkind.cmp_format { mode = 'symbol_text', maxwidth = 50 } (entry, vim_item)
       local strings = vim.split(kind.kind, '%s', { trimempty = true })
       kind.kind = ' ' .. strings[1] .. ' '
       kind.menu = '    ' .. source_mapping[entry.source.name] .. ''
@@ -79,7 +79,7 @@ cmp.setup {
     { name = 'buffer', keyword_length = 5 },
   },
   experimental = {
-    ghost_text = false,
+    ghost_text = true,
   },
 }
 
@@ -102,57 +102,5 @@ cmp.setup.cmdline('/', {
 cmp.setup.filetype({ 'dap-repl', 'dapui_watches' }, {
   sources = {
     { name = 'dap' },
-  },
-})
-
--- LSP setup
-local function config(_config)
-  return vim.tbl_deep_extend('force', {
-    capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities()),
-    on_attach = function(client)
-      client.server_capabilities.documentFormattingProvider = false
-      client.server_capabilities.documentRangeFormattingProvider = true
-    end,
-  }, _config or {})
-end
-
-local lsp = require 'lspconfig'
-
--- typescript/javascript
-lsp.tsserver.setup(config())
-
--- go
-lsp.gopls.setup(config {
-  cmd = { 'gopls', 'serve' },
-  settings = {
-    gopls = {
-      analyses = {
-        unusedparams = true,
-      },
-      staticcheck = true,
-    },
-  },
-})
-
--- lua
-lsp.sumneko_lua.setup(config {
-  -- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT',
-        path = vim.split(package.path, ';'),
-      },
-      diagnostics = {
-        globals = { 'vim' },
-      },
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = {
-          [vim.fn.expand '$VIMRUNTIME/lua'] = true,
-          [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
-        },
-      },
-    },
   },
 })
