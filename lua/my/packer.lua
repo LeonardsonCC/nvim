@@ -35,19 +35,6 @@ return require('packer').startup(function(use)
 
   use 'gbrlsnchs/telescope-lsp-handlers.nvim'
   use {
-    'edolphin-ydf/goimpl.nvim',
-    requires = {
-      { 'nvim-lua/plenary.nvim' },
-      { 'nvim-lua/popup.nvim' },
-      { 'nvim-telescope/telescope.nvim' },
-      { 'nvim-treesitter/nvim-treesitter' },
-    },
-    config = function()
-      require('telescope').load_extension 'goimpl'
-    end,
-  }
-
-  use {
     'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
     config = function()
       require('lsp_lines').setup()
@@ -97,6 +84,18 @@ return require('packer').startup(function(use)
       require('go').setup {}
     end,
   }
+  use {
+    'edolphin-ydf/goimpl.nvim',
+    requires = {
+      { 'nvim-lua/plenary.nvim' },
+      { 'nvim-lua/popup.nvim' },
+      { 'nvim-telescope/telescope.nvim' },
+      { 'nvim-treesitter/nvim-treesitter' },
+    },
+    config = function()
+      require('telescope').load_extension 'goimpl'
+    end,
+  }
 
   -- i'm too lazy to comment
   use {
@@ -125,7 +124,6 @@ return require('packer').startup(function(use)
   }
 
   use 'numToStr/FTerm.nvim'
-  use 'startup-nvim/startup.nvim'
   use 'folke/which-key.nvim'
   use {
     'folke/noice.nvim',
