@@ -5,6 +5,10 @@ return require('packer').startup(function(use)
   -- colorscheme
   use 'folke/tokyonight.nvim'
   use 'marko-cerovac/material.nvim'
+  use {
+    "catppuccin/nvim",
+    as = "catppuccin",
+  }
 
   -- telescope is great
   use {

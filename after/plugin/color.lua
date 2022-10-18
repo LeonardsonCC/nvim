@@ -5,4 +5,7 @@ vim.opt.background = 'dark'
 
 -- vim.g.material_style = "deep ocean"
 
-vim.cmd 'colorscheme tokyonight-night'
+vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+require("catppuccin").setup()
+
+vim.cmd 'colorscheme catppuccin'
