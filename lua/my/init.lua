@@ -1,9 +1,9 @@
 require 'my.set'
 require 'my.packer'
+require 'my.snips'
 require 'my.telescope'
 require 'my.statusline'
 require 'my.autocmds'
-require 'my.neogit'
 require 'my.term'
 
 -- netrw configs

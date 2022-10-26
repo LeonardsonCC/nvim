@@ -2,6 +2,7 @@ local nnoremap = require('my.keymap').nnoremap
 local inoremap = require('my.keymap').inoremap
 local vnoremap = require('my.keymap').vnoremap
 local wk = require 'which-key'
+local ls = require 'luasnip'
 
 wk.setup()
 
@@ -12,6 +13,24 @@ inoremap('kj', '<Esc>')
 -- better indent
 vnoremap('>', '>gv')
 vnoremap('<', '<gv')
+
+-- LuaSnip
+inoremap("<C-k>", function()
+  print("executed", ls.expand_or_jumpable())
+  if ls.expand_or_jumpable() then
+    ls.expand_or_jump()
+  end
+end)
+inoremap("<C-j>", function()
+  if ls.jumpable(-1) then
+    ls.jump(-1)
+  end
+end)
+inoremap("<C-l>", function()
+  if ls.choice_active() then
+    ls.change_choice(1)
+  end
+end)
 
 -- Normal mode mappings
 local opts = {

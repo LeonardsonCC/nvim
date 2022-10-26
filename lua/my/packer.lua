@@ -32,18 +32,24 @@ return require('packer').startup(function(use)
     'hrsh7th/cmp-buffer',
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
-    'hrsh7th/cmp-nvim-lsp-signature-help',
     'saadparwaiz1/cmp_luasnip',
     'onsails/lspkind-nvim', -- nice icons
   }
-
-  use 'gbrlsnchs/telescope-lsp-handlers.nvim'
   use {
-    'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+    "ray-x/lsp_signature.nvim",
     config = function()
-      require('lsp_lines').setup()
+      require("lsp_signature").setup({})
     end,
   }
+
+
+  use 'gbrlsnchs/telescope-lsp-handlers.nvim'
+  -- use {
+  --   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
+  --   config = function()
+  --     require('lsp_lines').setup()
+  --   end,
+  -- }
 
   use {
     'folke/todo-comments.nvim',
@@ -63,7 +69,7 @@ return require('packer').startup(function(use)
   }
 
   -- trying different things
-  use 'TimUntersberger/neogit'
+  use 'tpope/vim-fugitive'
   use {
     'lewis6991/gitsigns.nvim',
     config = function()
@@ -129,22 +135,22 @@ return require('packer').startup(function(use)
 
   use 'numToStr/FTerm.nvim'
   use 'folke/which-key.nvim'
-  use {
-    'folke/noice.nvim',
-    event = 'VimEnter',
-    config = function()
-      require('noice').setup {
-        messages = {
-          enabled = false,
-        },
-      }
-    end,
-    requires = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
-  }
+  -- use {
+  --   'folke/noice.nvim',
+  --   event = 'VimEnter',
+  --   config = function()
+  --     require('noice').setup {
+  --       messages = {
+  --         enabled = false,
+  --       },
+  --     }
+  --   end,
+  --   requires = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     'MunifTanjim/nui.nvim',
+  --     'rcarriga/nvim-notify',
+  --   },
+  -- }
 
   use 'ThePrimeagen/harpoon'
 end)
