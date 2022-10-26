@@ -22,6 +22,15 @@ local source_mapping = {
 
 local lspkind = require 'lspkind'
 
+local preselect = function(entry1, entry2)
+  local preselect1 = entry1.completion_item.preselect or false
+  local preselect2 = entry2.completion_item.preselect or false
+  if preselect1 ~= preselect2 then
+    return preselect1
+  end
+end
+local compare = require('cmp.config.compare')
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -34,7 +43,7 @@ cmp.setup {
       i = cmp.mapping.abort(),
     },
     ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
+      behavior = cmp.ConfirmBehavior.Insert,
       select = false,
     },
     ['<C-n>'] = function(fallback)
@@ -70,6 +79,12 @@ cmp.setup {
       return kind
     end,
   },
+  sorting = {
+    comparators = {
+      preselect,
+      compare.sort_text,
+    }
+  },
   sources = {
     -- { name = 'nvim_lsp_signature_help' },
     { name = 'nvim_lua' },
@@ -79,7 +94,7 @@ cmp.setup {
     { name = 'buffer', keyword_length = 5 },
   },
   experimental = {
-    ghost_text = true,
+    ghost_text = false,
   },
 }
 

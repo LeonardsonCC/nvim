@@ -23,7 +23,7 @@ vim.o.scrolloff = 10
 vim.o.cursorline = false
 
 vim.api.nvim_command 'set signcolumn=yes'
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = 'menu,menuone,noselect'
 vim.api.nvim_command 'set noshowmode'
 vim.api.nvim_command 'set shortmess+=c'
 
