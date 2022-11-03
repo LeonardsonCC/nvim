@@ -20,7 +20,7 @@ vim.api.nvim_command 'set undodir=~/.config/nvim/undodir'
 vim.o.undofile = true
 
 vim.o.scrolloff = 10
-vim.o.cursorline = false
+vim.o.cursorline = true
 
 vim.api.nvim_command 'set signcolumn=yes'
 vim.o.completeopt = 'menu,menuone,noselect'
@@ -34,3 +34,5 @@ vim.opt.wrap = true
 vim.opt.mouse = 'a'
 
 vim.g.mapleader = ' '
+
+vim.cmd [[ set laststatus=3 ]]

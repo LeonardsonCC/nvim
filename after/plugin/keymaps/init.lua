@@ -14,6 +14,12 @@ inoremap('kj', '<Esc>')
 vnoremap('>', '>gv')
 vnoremap('<', '<gv')
 
+-- better copy and paste from clipboard
+vnoremap('<Leader>y', '"+y')
+vnoremap('<Leader>p', '"+p')
+vnoremap('<Leader>yy', '"+yy')
+vnoremap('<Leader>P', '"+P')
+
 -- LuaSnip
 inoremap("<C-k>", function()
   print("executed", ls.expand_or_jumpable())
@@ -60,7 +66,7 @@ wk.register({
     l = { gs.toggle_current_line_blame, 'Line Blame' },
     t = { gs.diffthis, 'Open Diff' },
     a = 'Fetch All',
-    g = 'Neogit',
+    g = { '<CMD>G<CR>', 'Git' },
   },
   t = {
     '<Cmd>TroubleToggle<CR>',
