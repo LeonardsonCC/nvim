@@ -5,6 +5,13 @@ require('mason-lspconfig').setup {
   ensure_installed = { 'sumneko_lua' },
   automatic_installation = true,
 }
+local null_ls = require("null-ls")
+null_ls.setup({
+  sources = {
+    null_ls.builtins.formatting.prettier,
+  },
+})
+require("mason-null-ls").setup()
 
 -- Setup automatic LSP handler
 local lspconfig = require 'lspconfig'
