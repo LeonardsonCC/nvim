@@ -128,12 +128,7 @@ return require('packer').startup(function(use)
   -- beauty
   use 'nvim-lualine/lualine.nvim'
 
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-    },
-  }
+  use 'SidOfc/carbon.nvim'
 
   use 'numToStr/FTerm.nvim'
   use 'folke/which-key.nvim'

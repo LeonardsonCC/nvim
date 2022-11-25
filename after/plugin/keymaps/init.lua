@@ -82,7 +82,7 @@ wk.register({
     'Trouble',
   },
   ['<Leader>'] = {
-    '<Cmd>NvimTreeFindFileToggle<CR>',
+    '<Cmd>Carbon<CR>',
     'Open FileTree',
   },
   s = {
