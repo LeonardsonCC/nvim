@@ -16,7 +16,7 @@ vim.opt.smartindent = true
 vim.o.belloff = 'all'
 vim.o.swapfile = false
 vim.o.backup = false
-vim.api.nvim_command 'set undodir=~/.config/nvim/undodir'
+vim.opt.undodir = vim.fn.expand('~/.vim/undodir')
 vim.o.undofile = true
 
 vim.o.scrolloff = 10
