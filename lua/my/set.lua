@@ -35,4 +35,6 @@ vim.opt.mouse = 'a'
 
 vim.g.mapleader = ' '
 
+vim.opt.termguicolors = true
+
 vim.cmd [[ set laststatus=3 ]]
