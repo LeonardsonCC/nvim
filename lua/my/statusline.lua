@@ -14,7 +14,7 @@ require('lualine').setup {
         return str:sub(1, 1)
       end,
     } },
-    lualine_b = {},
+    lualine_b = { 'lsp_progress' },
     lualine_c = {
       '%=',
       {

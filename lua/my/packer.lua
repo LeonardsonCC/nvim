@@ -118,19 +118,14 @@ return require('packer').startup(function(use)
   }
 
   -- just because it's fancy
-  use {
-    'j-hui/fidget.nvim',
-    config = function()
-      require('fidget').setup()
-    end,
-  }
+  use 'j-hui/fidget.nvim'
 
   -- beauty
   use 'nvim-lualine/lualine.nvim'
+  use 'arkav/lualine-lsp-progress'
 
   use 'SidOfc/carbon.nvim'
 
-  use 'numToStr/FTerm.nvim'
   use 'folke/which-key.nvim'
   -- use {
   --   'folke/noice.nvim',
