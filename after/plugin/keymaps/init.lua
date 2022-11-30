@@ -35,11 +35,6 @@ nnoremap('<S-l>', '$')
 vnoremap('<S-h>', '_')
 vnoremap('<S-l>', '$')
 
--- copy/paste
-nnoremap('<Leader>y', '"+y')
-nnoremap('<Leader>p', '"+p')
-nnoremap('<Leader>P', '"+P')
-
 -- better copy and paste from clipboard
 vnoremap('<Leader>y', '"+y')
 vnoremap('<Leader>p', '"+p')
