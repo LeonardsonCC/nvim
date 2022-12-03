@@ -132,4 +132,6 @@ return require('packer').startup(function(use)
       require('colorizer').setup()
     end,
   }
+
+  use 'NMAC427/guess-indent.nvim'
 end)

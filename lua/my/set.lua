@@ -38,3 +38,10 @@ vim.g.mapleader = ' '
 vim.opt.termguicolors = true
 
 vim.cmd [[ set laststatus=3 ]]
+
+vim.opt.listchars = {
+  eol = "",
+  space = ".",
+  tab = ">>>",
+}
+vim.opt.list = true
