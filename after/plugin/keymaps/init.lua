@@ -128,7 +128,6 @@ wk.register({
     f = { lsp_buf.format, 'Format' },
     g = {
       name = 'Go!',
-      i = { telescope.extensions.goimpl.goimpl, 'Impl' },
       c = { '<CMD>GoCmt<CR>', 'Comment' },
       s = { '<CMD>GoFillStruct<CR>', 'Fill Struct' },
       w = { '<CMD>GoFillSwitch<CR>', 'Fill Switch' },
