@@ -113,7 +113,12 @@ return require('packer').startup(function(use)
   use 'nvim-lualine/lualine.nvim'
   use 'arkav/lualine-lsp-progress'
 
-  use 'SidOfc/carbon.nvim'
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  }
 
   use 'folke/which-key.nvim'
 
