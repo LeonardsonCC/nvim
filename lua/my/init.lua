@@ -3,6 +3,7 @@ require 'my.packer'
 require 'my.telescope'
 require 'my.statusline'
 require 'my.autocmds'
+require 'my.ducksville'
 
 -- netrw configs
 vim.g.netrw_browse_split = 0
