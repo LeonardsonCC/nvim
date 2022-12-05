@@ -135,6 +135,6 @@ return require('packer').startup(function(use)
 
   use 'NMAC427/guess-indent.nvim'
 
-  -- use 'LeonardsonCC/duck.nvim.git'
-  use '~/dev/duck.nvim'
+  use 'LeonardsonCC/duck.nvim'
+  -- use '~/dev/duck.nvim'
 end)
