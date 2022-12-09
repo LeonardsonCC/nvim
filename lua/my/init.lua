@@ -12,3 +12,8 @@ vim.g.netrw_winsize = 25
 vim.g.netrw_list_hide = 1
 
 require "fidget".setup {}
+require("no-neck-pain").setup({
+  width = 100,
+  debug = false,
+  leftPaddingOnly = false,
+})

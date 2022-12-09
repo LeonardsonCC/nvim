@@ -64,6 +64,9 @@ nnoremap('<A-p>', h_ui.nav_prev)
 -- telescope
 nnoremap('<Leader><Leader>', builtin.find_files)
 
+-- no-neck-pain
+nnoremap('<Leader>nnp', require("no-neck-pain").start)
+
 -- LuaSnip
 inoremap("<C-k>", function()
   print("executed", ls.expand_or_jumpable())

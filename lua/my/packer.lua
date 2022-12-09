@@ -137,4 +137,7 @@ return require('packer').startup(function(use)
 
   use 'LeonardsonCC/duck.nvim'
   -- use '~/dev/duck.nvim'
+
+
+  use 'shortcuts/no-neck-pain.nvim'
 end)
