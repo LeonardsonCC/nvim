@@ -137,7 +137,12 @@ return require('packer').startup(function(use)
 
   use 'LeonardsonCC/duck.nvim'
   -- use '~/dev/duck.nvim'
+  use '~/dev/scrips.nvim'
 
+  -- use {
+  --   "LeonardsonCC/scrips.nvim",
+  --   requires = "nvim-lua/plenary.nvim"
+  -- }
 
   use 'shortcuts/no-neck-pain.nvim'
 end)

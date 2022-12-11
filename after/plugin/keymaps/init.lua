@@ -3,6 +3,7 @@ local inoremap = require('my.keymap').inoremap
 local vnoremap = require('my.keymap').vnoremap
 local wk = require 'which-key'
 local ls = require 'luasnip'
+local scrips = require 'scrips'
 
 local gs = require 'gitsigns'
 local lsp_buf = vim.lsp.buf
@@ -65,7 +66,7 @@ nnoremap('<A-p>', h_ui.nav_prev)
 nnoremap('<Leader><Leader>', builtin.find_files)
 
 -- no-neck-pain
-nnoremap('<Leader>nnp', require("no-neck-pain").start)
+-- nnoremap('<Leader>nnp', require("no-neck-pain").start)
 
 -- LuaSnip
 inoremap("<C-k>", function()
@@ -84,6 +85,12 @@ inoremap("<C-l>", function()
     ls.change_choice(1)
   end
 end)
+
+-- Easy Cmd
+nnoremap('<Leader>en', scrips.new_script)
+nnoremap('<Leader>er', scrips.run_paragraph)
+nnoremap('<Leader>eR', scrips.run_file)
+nnoremap('<Leader>se', telescope.extensions.scrips.find_file)
 
 -- Normal mode mappings
 local opts = {

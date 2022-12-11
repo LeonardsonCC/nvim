@@ -17,3 +17,6 @@ require("no-neck-pain").setup({
   debug = false,
   leftPaddingOnly = false,
 })
+
+require('scrips').setup()
+require('telescope').load_extension('scrips')
