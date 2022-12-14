@@ -146,4 +146,5 @@ return require('packer').startup(function(use)
 
   use 'shortcuts/no-neck-pain.nvim'
   use 'aduros/ai.vim'
+  use 'dstein64/vim-startuptime'
 end)
