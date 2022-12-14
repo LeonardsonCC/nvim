@@ -10,11 +10,11 @@ autocmd('TextYankPost', {
 })
 
 -- remove trailing space
-autocmd({ 'BufWritePre' }, {
-  group = OnSave,
-  pattern = '*',
-  command = '%s/\\s\\+$//e',
-})
+-- autocmd({ 'BufWritePre' }, {
+--   group = OnSave,
+--   pattern = '*',
+--   command = '%s/\\s\\+$//e',
+-- })
 
 -- autoformat on save
 autocmd({ 'BufWritePre' }, {
