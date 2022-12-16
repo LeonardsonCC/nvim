@@ -145,6 +145,18 @@ return require('packer').startup(function(use)
   }
 
   use 'shortcuts/no-neck-pain.nvim'
-  use 'aduros/ai.vim'
   use 'dstein64/vim-startuptime'
+  use({
+    "jackMort/ChatGPT.nvim",
+    config = function()
+      require("chatgpt").setup({
+        -- optional configuration
+      })
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  })
 end)
