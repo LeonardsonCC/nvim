@@ -33,5 +33,6 @@ lsp.setup_nvim_cmp({
         fallback()
       end
     end,
+    ['<C-Space>'] = cmp.mapping.complete(),
   })
 })
