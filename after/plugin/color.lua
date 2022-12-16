@@ -1,9 +1,10 @@
-vim.opt.background = 'dark'
+function Colorscheme(colorscheme)
+  colorscheme = colorscheme or "tokyonight"
+  vim.cmd.colorscheme(colorscheme)
 
-vim.g.material_style = "deep ocean"
-
--- vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
--- require("catppuccin").setup()
+  vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
 
 require("tokyonight").setup({
   style = "night",
@@ -12,4 +13,4 @@ require("tokyonight").setup({
   terminal_colors = true,
 })
 
-vim.cmd 'colorscheme tokyonight'
+Colorscheme()
