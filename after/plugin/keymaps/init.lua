@@ -1,6 +1,3 @@
-local nnoremap = require('my.keymap').nnoremap
-local inoremap = require('my.keymap').inoremap
-local vnoremap = require('my.keymap').vnoremap
 local wk = require 'which-key'
 local ls = require 'luasnip'
 local scrips = require 'scrips'
@@ -23,74 +20,93 @@ end, { desc = 'Format current buffer with LSP' })
 wk.setup()
 
 -- Escape keys
-inoremap('jk', '<Esc>')
-inoremap('kj', '<Esc>')
+vim.keymap.set('i', 'jk', '<Esc>')
+vim.keymap.set('i', 'kj', '<Esc>')
+
+-- move lines
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+
+-- don't move when J
+vim.keymap.set('n', 'J', "mzJ`z")
+
+-- center when moving around
+vim.keymap.set('n', '<C-d>', "<C-d>zz")
+vim.keymap.set('n', '<C-u>', "<C-u>zz")
+vim.keymap.set('n', 'n', "nzzzv")
+vim.keymap.set('n', 'N', "Nzzzv")
 
 -- better indent
-vnoremap('>', '>gv')
-vnoremap('<', '<gv')
+vim.keymap.set('v', '>', '>gv')
+vim.keymap.set('v', '<', '<gv')
 
 -- better moves
-nnoremap('<S-h>', '_')
-nnoremap('<S-l>', '$')
-vnoremap('<S-h>', '_')
-vnoremap('<S-l>', '$')
+vim.keymap.set('n', '<S-h>', '_')
+vim.keymap.set('n', '<S-l>', '$')
+vim.keymap.set('v', '<S-h>', '_')
+vim.keymap.set('v', '<S-l>', '$')
+
+-- replace current word
+vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+
+-- make current file executable
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>")
 
 -- better copy and paste from clipboard
-vnoremap('<Leader>y', '"+y')
-vnoremap('<Leader>p', '"+p')
-vnoremap('<Leader>yy', '"+yy')
-vnoremap('<Leader>P', '"+P')
+vim.keymap.set('v', '<Leader>y', '"+y')
+vim.keymap.set('v', '<Leader>p', '"+p')
+vim.keymap.set('v', '<Leader>yy', '"+yy')
+vim.keymap.set('v', '<Leader>P', '"+P')
 
 -- LSP
-nnoremap('gd', vim.lsp.buf.definition)
-nnoremap("gD", vim.lsp.buf.declaration)
-nnoremap('gr', vim.lsp.buf.references)
-nnoremap('gi', vim.lsp.buf.implementation)
-nnoremap('<Leader>f', vim.lsp.buf.format)
-nnoremap('K', vim.lsp.buf.hover)
-nnoremap('[d', vim.diagnostic.goto_next)
-nnoremap(']d', vim.diagnostic.goto_prev)
-nnoremap('[g', vim.diagnostic.goto_next)
-nnoremap(']g', vim.diagnostic.goto_prev)
-inoremap('<C-h>', vim.lsp.buf.signature_help)
-nnoremap('<Leader>d', vim.diagnostic.open_float)
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', "gD", vim.lsp.buf.declaration)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
+vim.keymap.set('n', '<Leader>f', vim.lsp.buf.format)
+vim.keymap.set('n', 'K', vim.lsp.buf.hover)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_next)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', '[g', vim.diagnostic.goto_next)
+vim.keymap.set('n', ']g', vim.diagnostic.goto_prev)
+vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help)
+vim.keymap.set('n', '<Leader>d', vim.diagnostic.open_float)
 
 -- Harpoon
-nnoremap('<A-o>', h_ui.toggle_quick_menu)
-nnoremap('<A-a>', h_mark.add_file)
-nnoremap('<A-n>', h_ui.nav_next)
-nnoremap('<A-p>', h_ui.nav_prev)
+vim.keymap.set('n', '<A-o>', h_ui.toggle_quick_menu)
+vim.keymap.set('n', '<A-a>', h_mark.add_file)
+vim.keymap.set('n', '<A-n>', h_ui.nav_next)
+vim.keymap.set('n', '<A-p>', h_ui.nav_prev)
 
 -- telescope
-nnoremap('<Leader><Leader>', builtin.find_files)
+vim.keymap.set('n', '<Leader><Leader>', builtin.find_files)
 
 -- no-neck-pain
--- nnoremap('<Leader>nnp', require("no-neck-pain").start)
+-- vim.keymap.set('n', '<Leader>nnp', require("no-neck-pain").start)
 
 -- LuaSnip
-inoremap("<C-k>", function()
+vim.keymap.set('i', "<C-k>", function()
   print("executed", ls.expand_or_jumpable())
   if ls.expand_or_jumpable() then
     ls.expand_or_jump()
   end
 end)
-inoremap("<C-j>", function()
+vim.keymap.set('i', "<C-j>", function()
   if ls.jumpable(-1) then
     ls.jump(-1)
   end
 end)
-inoremap("<C-l>", function()
+vim.keymap.set('i', "<C-l>", function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
 end)
 
 -- Easy Cmd
-nnoremap('<Leader>en', scrips.new_script)
-nnoremap('<Leader>er', scrips.run_paragraph)
-nnoremap('<Leader>eR', scrips.run_file)
-nnoremap('<Leader>se', telescope.extensions.scrips.find_file)
+vim.keymap.set('n', '<Leader>en', scrips.new_script)
+vim.keymap.set('n', '<Leader>er', scrips.run_paragraph)
+vim.keymap.set('n', '<Leader>eR', scrips.run_file)
+vim.keymap.set('n', '<Leader>se', telescope.extensions.scrips.find_file)
 
 -- Normal mode mappings
 local opts = {
