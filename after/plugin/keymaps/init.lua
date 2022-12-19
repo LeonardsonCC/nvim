@@ -81,9 +81,6 @@ vim.keymap.set('n', '<A-p>', h_ui.nav_prev)
 -- telescope
 vim.keymap.set('n', '<Leader><Leader>', builtin.find_files)
 
--- no-neck-pain
--- vim.keymap.set('n', '<Leader>nnp', require("no-neck-pain").start)
-
 -- LuaSnip
 vim.keymap.set('i', "<C-k>", function()
   print("executed", ls.expand_or_jumpable())

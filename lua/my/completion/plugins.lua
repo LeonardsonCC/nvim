@@ -30,3 +30,4 @@ packer.use("ray-x/lsp_signature.nvim")
 packer.use('gbrlsnchs/telescope-lsp-handlers.nvim')
 
 packer.use('j-hui/fidget.nvim')
+packer.use('ray-x/go.nvim')

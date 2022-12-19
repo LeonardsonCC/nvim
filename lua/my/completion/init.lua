@@ -2,6 +2,7 @@ require('my.completion.plugins')
 
 require "fidget".setup {}
 require("lsp_signature").setup({})
+require('go').setup({})
 local lsp = require('lsp-zero')
 
 lsp.preset('recommended')
