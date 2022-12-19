@@ -80,3 +80,4 @@ M.duck_spawner = function(animal)
 end
 
 return M
+

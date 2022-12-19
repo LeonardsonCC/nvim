@@ -137,11 +137,11 @@ wk.register({
     'Trouble',
   },
   ['pv'] = {
-    '<cmd>NvimTreeToggle<CR>',
+    '<cmd>Explore<CR>',
     'Open FileTree',
   },
   ['pc'] = {
-    '<cmd>NvimTreeFindFileToggle<CR>',
+    '<cmd>Vexplore<CR>',
     'Open FileTree',
   },
   c = {

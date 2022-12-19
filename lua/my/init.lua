@@ -5,7 +5,7 @@ require 'my.statusline'
 require 'my.autocmds'
 require 'my.vcs'
 require 'my.completion'
-require('my.ducksville').setup()
+require 'my.fun'
 
 -- netrw configs
 vim.g.netrw_browse_split = 0

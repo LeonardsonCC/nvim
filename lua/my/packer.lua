@@ -89,8 +89,6 @@ return require('packer').startup(function(use)
 
   use 'NMAC427/guess-indent.nvim'
 
-  use 'LeonardsonCC/duck.nvim'
-  -- use '~/dev/duck.nvim'
   -- use '~/dev/scrips.nvim'
 
   use {
