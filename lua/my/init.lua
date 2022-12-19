@@ -3,6 +3,8 @@ require 'my.packer'
 require 'my.telescope'
 require 'my.statusline'
 require 'my.autocmds'
+require 'my.vcs'
+require 'my.completion'
 require('my.ducksville').setup()
 
 -- netrw configs

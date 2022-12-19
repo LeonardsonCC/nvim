@@ -1,4 +1,17 @@
+require('my.completion.plugins')
+
+require("lsp_signature").setup({})
 local lsp = require('lsp-zero')
+
+lsp.preset('recommended')
+
+lsp.ensure_installed({
+  'tsserver',
+  'eslint',
+  'sumneko_lua',
+  'gopls',
+  'intelephense',
+})
 
 local preselect = function(entry1, entry2)
   local preselect1 = entry1.completion_item.preselect or false
@@ -36,3 +49,14 @@ lsp.setup_nvim_cmp({
     ['<C-Space>'] = cmp.mapping.complete(),
   })
 })
+
+lsp.on_attach(function(_, bufnr)
+  vim.keymap.set('n', 'gca', vim.lsp.buf.code_action, { buffer = bufnr, remap = false })
+end)
+
+lsp.set_preferences({
+  suggest_lsp_servers = true,
+})
+
+lsp.nvim_workspace()
+lsp.setup()
