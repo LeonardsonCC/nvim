@@ -1,5 +1,6 @@
 require('my.editor.colors')
 require('my.editor.plugins')
+require('my.editor.treesitter')
 require('my.editor.statusline')
 
 require('colorizer').setup()
@@ -20,3 +21,5 @@ require('Comment').setup()
 require('trouble').setup({
   icons = true,
 })
+
+require('guess-indent').setup {}
