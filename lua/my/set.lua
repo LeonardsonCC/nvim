@@ -40,8 +40,6 @@ vim.opt.termguicolors = true
 vim.cmd [[ set laststatus=3 ]]
 
 vim.opt.listchars = {
-  eol = "",
-  space = ".",
-  tab = ">>>",
+  eol = "↴",
 }
 vim.opt.list = true

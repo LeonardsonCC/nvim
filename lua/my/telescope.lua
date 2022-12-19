@@ -14,6 +14,9 @@ telescope.setup {
     grep_previewer = previewers.vim_buffer_vimgrep.new,
     qflist_previewer = previewers.vim_buffer_qflist.new,
 
+    file_sorter = require 'telescope.sorters'.get_fzy_sorter,
+    generic_sorter = require 'telescope.sorters'.get_fzy_sorter,
+
     mappings = {},
   },
   pickers = {

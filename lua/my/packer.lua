@@ -60,9 +60,6 @@ return require('packer').startup(function(use)
     end,
   }
 
-  -- just because it's fancy
-  use 'j-hui/fidget.nvim'
-
   -- beauty
   use 'nvim-lualine/lualine.nvim'
   use 'arkav/lualine-lsp-progress'
