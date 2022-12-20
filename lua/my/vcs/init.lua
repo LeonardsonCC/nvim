@@ -1,6 +1,3 @@
--- Plugin installation
-require('my.vcs.plugins')
-
 require('gitsigns').setup()
 
 -- remap q to leave fugitive window

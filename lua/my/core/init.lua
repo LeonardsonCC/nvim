@@ -10,6 +10,7 @@ require 'my.completion'
 require 'my.navigation'
 require 'my.fun'
 require 'my.editor'
+require 'my.core.keymaps'
 
 -- netrw configs
 vim.g.netrw_browse_split = 0

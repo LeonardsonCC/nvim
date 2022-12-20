@@ -1,36 +1,40 @@
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local install_path = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 local is_bootstrap = false
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+if not vim.loop.fs_stat(install_path) then
   is_bootstrap = true
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-  vim.cmd [[packadd packer.nvim]]
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--single-branch",
+    "git@github.com:folke/lazy.nvim.git",
+    install_path,
+  })
 end
+vim.opt.runtimepath:prepend(install_path)
 
-require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-
-  require 'my.completion.plugins'
-  require 'my.navigation.plugins'
-  require 'my.editor.plugins'
-  require 'my.fun.plugins'
-  require 'my.vcs.plugins'
-
-  local has_plugins, plugins = pcall(require, 'custom.plugins')
-  if has_plugins then
-    plugins(use)
-  end
-
-  if is_bootstrap then
-    require('packer').sync()
-  end
-end)
-
-if is_bootstrap then
-  print '=================================='
-  print '    Plugins are being installed'
-  print '    Wait until Packer completes,'
-  print '       then restart nvim'
-  print '=================================='
-end
+require("lazy").setup('my.plugins', {
+  defaults = { lazy = true },
+  checker = { enabled = true },
+  performance = {
+    cache = {
+      enabled = true,
+    },
+    reset_packpath = true,
+    rtp = {
+      disabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        -- "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
+  debug = true,
+})
 
 return is_bootstrap
