@@ -15,7 +15,7 @@ vim.opt.runtimepath:prepend(install_path)
 
 require("lazy").setup('my.plugins', {
   defaults = { lazy = true },
-  checker = { enabled = true },
+  -- checker = { enabled = true },
   performance = {
     cache = {
       enabled = true,

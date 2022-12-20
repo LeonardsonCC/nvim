@@ -135,11 +135,11 @@ wk.register({
     'Trouble',
   },
   ['pv'] = {
-    '<cmd>Explore<CR>',
+    '<cmd>NeoTreeFocusToggle<CR>',
     'Open FileTree',
   },
   ['pc'] = {
-    '<cmd>Vexplore<CR>',
+    '<cmd>NeoTreeFloatToggle<CR>',
     'Open FileTree',
   },
   c = {
