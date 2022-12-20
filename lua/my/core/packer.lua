@@ -34,7 +34,7 @@ require("lazy").setup('my.plugins', {
       },
     },
   },
-  debug = true,
+  debug = false,
 })
 
 return is_bootstrap
