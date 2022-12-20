@@ -1,4 +1,4 @@
-local is_bootstrap = require 'my.core.packer'
+local is_bootstrap = require 'my.core.plugins'
 if is_bootstrap then
   return
 end
