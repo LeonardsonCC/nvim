@@ -17,7 +17,7 @@
   "guess-indent.nvim": { "branch": "main", "commit": "c37467baa1a51b74ed767cbe0540fce44e03d828" },
   "harpoon": { "branch": "master", "commit": "21d0d1bfa3000e4384740bfaefa0ebc51c773786" },
   "indent-blankline.nvim": { "branch": "master", "commit": "c4c203c3e8a595bc333abaf168fcb10c13ed5fb7" },
-  "lazy.nvim": { "branch": "main", "commit": "4d782030c84bbdbd9a86d15a94c75aa339baece8" },
+  "lazy.nvim": { "branch": "main", "commit": "52984419ffa051d66bccec9f93e7cbb4fdd94976" },
   "lsp-zero.nvim": { "branch": "main", "commit": "db14e9adebb041a4d7dcda86c9ceff59adf206db" },
   "lsp_signature.nvim": { "branch": "master", "commit": "600b2729ad8649d0745c76c55f5fd7586713d6dd" },
   "lualine-lsp-progress": { "branch": "master", "commit": "56842d097245a08d77912edf5f2a69ba29f275d7" },
