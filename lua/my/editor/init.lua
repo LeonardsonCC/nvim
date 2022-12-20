@@ -1,5 +1,4 @@
 require('my.editor.colors')
-require('my.editor.plugins')
 require('my.editor.treesitter')
 require('my.editor.statusline')
 

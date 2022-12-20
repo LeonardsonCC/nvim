@@ -27,7 +27,14 @@ require('lualine').setup {
       },
     },
     lualine_y = {},
-    lualine_x = { { 'diagnostics', always_visible = true } },
+    lualine_x = {
+      {
+        require("lazy.status").updates,
+        cond = require("lazy.status").has_updates,
+        color = { fg = "#ff9e64" },
+      },
+      { 'diagnostics', always_visible = true }
+    },
     lualine_z = {},
   },
 }

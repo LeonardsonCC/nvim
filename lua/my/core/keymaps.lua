@@ -19,6 +19,8 @@ end, { desc = 'Format current buffer with LSP' })
 
 wk.setup()
 
+vim.keymap.set("n", "<leader>p", "<cmd>:Lazy<cr>")
+
 -- Escape keys
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('i', 'kj', '<Esc>')
