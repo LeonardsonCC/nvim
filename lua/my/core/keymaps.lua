@@ -129,9 +129,8 @@ wk.register({
     l = { gs.toggle_current_line_blame, 'Line Blame' },
     t = { gs.diffthis, 'Open Diff' },
     a = 'Fetch All',
-    g = { '<CMD>G<CR>', 'Git' },
   },
-  t = {
+  ['tr'] = {
     '<Cmd>TroubleToggle<CR>',
     'Trouble',
   },
