@@ -6,6 +6,8 @@ return {
   'nvim-treesitter/nvim-treesitter-context',
   'gpanders/editorconfig.nvim',
 
+  "akinsho/toggleterm.nvim",
+
   'folke/which-key.nvim',
 
   'norcalli/nvim-colorizer.lua',

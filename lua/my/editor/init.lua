@@ -1,6 +1,7 @@
 require('my.editor.colors')
 require('my.editor.treesitter')
 require('my.editor.statusline')
+require('my.editor.term')
 
 require('colorizer').setup()
 require("indent_blankline").setup({})
