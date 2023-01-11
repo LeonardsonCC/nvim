@@ -1,9 +1,10 @@
+require 'my.core.set'
+
 local is_bootstrap = require 'my.core.plugins'
 if is_bootstrap then
   return
 end
 
-require 'my.core.set'
 require 'my.core.autocmds'
 require 'my.vcs'
 require 'my.completion'
