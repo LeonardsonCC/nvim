@@ -19,7 +19,7 @@ end, { desc = 'Format current buffer with LSP' })
 
 wk.setup()
 
-vim.keymap.set("n", "<leader>p", "<cmd>:Lazy<cr>")
+vim.keymap.set('n', '<leader>p', '<cmd>:Lazy<cr>')
 
 -- Escape keys
 vim.keymap.set('i', 'jk', '<Esc>')
@@ -30,13 +30,13 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 
 -- don't move when J
-vim.keymap.set('n', 'J', "mzJ`z")
+vim.keymap.set('n', 'J', 'mzJ`z')
 
 -- center when moving around
-vim.keymap.set('n', '<C-d>', "<C-d>zz")
-vim.keymap.set('n', '<C-u>', "<C-u>zz")
-vim.keymap.set('n', 'n', "nzzzv")
-vim.keymap.set('n', 'N', "Nzzzv")
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')
 
 -- better indent
 vim.keymap.set('v', '>', '>gv')
@@ -49,10 +49,10 @@ vim.keymap.set('v', '<S-h>', '_')
 vim.keymap.set('v', '<S-l>', '$')
 
 -- replace current word
-vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set('n', '<leader>s', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
 -- make current file executable
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<cr>")
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<cr>')
 
 -- better copy and paste from clipboard
 vim.keymap.set('v', '<Leader>y', '"+y')
@@ -62,7 +62,7 @@ vim.keymap.set('v', '<Leader>P', '"+P')
 
 -- LSP
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
-vim.keymap.set('n', "gD", vim.lsp.buf.declaration)
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover)
@@ -83,18 +83,18 @@ vim.keymap.set('n', '<A-p>', h_ui.nav_prev)
 vim.keymap.set('n', '<Leader><Leader>', builtin.find_files)
 
 -- LuaSnip
-vim.keymap.set('i', "<C-k>", function()
-  print("executed", ls.expand_or_jumpable())
+vim.keymap.set('i', '<C-k>', function()
+  print('executed', ls.expand_or_jumpable())
   if ls.expand_or_jumpable() then
     ls.expand_or_jump()
   end
 end)
-vim.keymap.set('i', "<C-j>", function()
+vim.keymap.set('i', '<C-j>', function()
   if ls.jumpable(-1) then
     ls.jump(-1)
   end
 end)
-vim.keymap.set('i', "<C-l>", function()
+vim.keymap.set('i', '<C-l>', function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
@@ -162,11 +162,15 @@ wk.register({
   f = {
     name = 'Search',
     f = { telescope.extensions.smart_open.smart_open, 'Find file' },
-    F = { function()
-      builtin.find_files({
-        hidden = true,
-      })
-    end, 'Find File' },
+    F = {
+      function()
+        builtin.find_files {
+          hidden = true,
+          no_ignore = true,
+        }
+      end,
+      'Find File',
+    },
     g = { builtin.live_grep, 'Grep' },
     b = { builtin.buffers, 'Buffers' },
     h = { builtin.help_tags, 'Help' },
