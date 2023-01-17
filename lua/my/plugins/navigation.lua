@@ -17,5 +17,11 @@ return {
       "MunifTanjim/nui.nvim",
       "s1n7ax/nvim-window-picker",
     }
-  }
+  },
+  {
+    "danielfalk/smart-open.nvim",
+    dependencies = {
+      "kkharji/sqlite.lua",
+    },
+  },
 }

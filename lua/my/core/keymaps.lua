@@ -101,10 +101,10 @@ vim.keymap.set('i', "<C-l>", function()
 end)
 
 -- Easy Cmd
-vim.keymap.set('n', '<Leader>en', scrips.new_script)
-vim.keymap.set('n', '<Leader>er', scrips.run_paragraph)
-vim.keymap.set('n', '<Leader>eR', scrips.run_file)
-vim.keymap.set('n', '<Leader>se', telescope.extensions.scrips.find_file)
+vim.keymap.set('n', '<Leader>cn', scrips.new_script)
+vim.keymap.set('n', '<Leader>cr', scrips.run_paragraph)
+vim.keymap.set('n', '<Leader>cR', scrips.run_file)
+vim.keymap.set('n', '<Leader>fe', telescope.extensions.scrips.find_file)
 
 -- Normal mode mappings
 local opts = {
@@ -137,9 +137,11 @@ wk.register({
     '<cmd>NeoTreeFocusToggle<CR>',
     'Open FileTree',
   },
-  c = {
-    '<Cmd>so %<CR>',
-    'Current file',
+  s = {
+    c = {
+      '<Cmd>so %<CR>',
+      'Current file',
+    },
   },
   u = { '<Cmd>UndotreeToggle<CR>', 'UndoTree' },
   l = {
@@ -157,9 +159,14 @@ wk.register({
       e = { '<CMD>GoIfErr<CR>', 'If Err' },
     },
   },
-  s = {
+  f = {
     name = 'Search',
-    f = { builtin.find_files, 'Find File' },
+    f = { telescope.extensions.smart_open.smart_open, 'Find file' },
+    F = { function()
+      builtin.find_files({
+        hidden = true,
+      })
+    end, 'Find File' },
     g = { builtin.live_grep, 'Grep' },
     b = { builtin.buffers, 'Buffers' },
     h = { builtin.help_tags, 'Help' },

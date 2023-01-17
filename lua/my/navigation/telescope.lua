@@ -2,6 +2,9 @@ local telescope = require 'telescope'
 local previewers = require 'telescope.previewers'
 
 telescope.load_extension 'lsp_handlers'
+telescope.load_extension 'ui-select'
+
+telescope.load_extension "smart_open"
 
 telescope.setup {
   defaults = {
@@ -18,11 +21,6 @@ telescope.setup {
     generic_sorter = require 'telescope.sorters'.get_fzy_sorter,
 
     mappings = {},
-  },
-  pickers = {
-    find_files = {
-      hidden = true,
-    },
   },
   extensions = {
     lsp_handlers = {

@@ -25,6 +25,7 @@ return {
   'jayp0521/mason-null-ls.nvim',
   "ray-x/lsp_signature.nvim",
   'gbrlsnchs/telescope-lsp-handlers.nvim',
+  "nvim-telescope/telescope-ui-select.nvim",
 
   'ray-x/go.nvim',
 }
