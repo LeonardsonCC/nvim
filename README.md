@@ -1,37 +1,45 @@
-# My Neovim Configuration
+# LazyVim
 
-## Why Neovim?
-- Because LSP is way better than COC;
-- Lua is better than VimLanguage;
-- Lua plugins are awesome;
-- Treesitter is great;
+A starter template for [LazyVim](https://github.com/LazyVim/LazyVim)
 
-## Install
-- Clone the repository;
-- Install [Packer](https://github.com/wbthomason/packer.nvim) manually;
-- Run `nvim +PackerSync` to download all plugins;
-- Be sure the LSP you'll use is installed using `:LspInstallInfo`, and configured in `after/plugin/lsp.lua`;
+## 🚀 Getting Started
 
-## Improvements
-- Automatically get the LspInstall installations and setup the LSP;
-- Script to install Packer and all dependencies automatically;
-- Any cool plugin found on the internet;
+This repo contains an example setup for
+[LazyVim](https://github.com/LazyVim/LazyVim)
 
-## Bindings
-|Mode   | Keymap 	                    | Description 	        | Category        |
-|----   |--------	                    |-------------	        |----------       |
-|Normal | gd                            | Go to definition      | LSP             |
-|Normal | gD                            | Go to declaration     | LSP             |
-|Normal | gi                            | Go to implementation  | LSP             |
-|Normal | gr                            | Go to references      | LSP             |
-|Normal | &lt;Leader&gt;f               | Format file           | LSP             |
-|Normal | K                             | Show hover            | LSP             |
-|Normal | ]d/]g                         | Next diagnostic       | LSP             |
-|Normal | [d/[g                         | Prev diagnostic       | LSP             |
-|Insert | C-h                           | Signature help        | LSP             |
-|Normal | &lt;Leader&gt;d               | Show diagnostic       | LSP             |
-|Normal | &lt;A-o&gt;                   | Quick menu            | Harpoon         |
-|Normal | &lt;A-a&gt;                   | Add file              | Harpoon         |
-|Normal | &lt;A-n&gt;                   | Next file             | Harpoon         |
-|Normal | &lt;A-p&gt;                   | Prev file             | Harpoon         |
-|Normal | &lt;Leader&gt;&lt;Leader&gt;  | Prev file             | Harpoon         |
+### 1. Make a backup of your current Neovim files:
+
+```sh
+mv ~/.config/nvim ~/.config/nvim.bak
+mv ~/.local/share/nvim ~/.local/share/nvim.bak
+```
+
+### 2. Clone the starter
+
+```sh
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+```
+
+### 3. Start Neovim!
+
+```sh
+nvim
+```
+
+Refer to the comments in the files on how to customize **LazyVim**.
+
+## 📂 File Structure
+
+<pre>
+~/.config/nvim
+├── lua
+│   ├── config
+│   │   ├── autocmds.lua
+│   │   ├── keymaps.lua
+│   │   ├── lazy.lua
+│   │   └── options.lua
+│   └── plugins
+│       └── example.lua
+├── init.lua
+└── stylua.toml
+</pre>
