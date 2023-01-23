@@ -6,20 +6,16 @@ return {
     },
   },
   {
-    "jose-elias-alvarez/null-ls.nvim",
-    event = "BufReadPre",
-    dependencies = { "mason.nvim" },
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true,
+    },
+  },
+  {
+    "gbprod/yanky.nvim",
     opts = function()
-      local nls = require("null-ls")
-      return {
-        sources = {
-          nls.builtins.formatting.goimports,
-
-          -- nls.builtins.formatting.prettierd,
-          nls.builtins.formatting.stylua,
-          nls.builtins.diagnostics.flake8,
-        },
-      }
+      require("yanky").setup({})
+      require("telescope").load_extension("yank_history")
     end,
   },
 }
