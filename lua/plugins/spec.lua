@@ -18,4 +18,23 @@ return {
       require("telescope").load_extension("yank_history")
     end,
   },
+  {
+    "rcarriga/nvim-notify",
+    enabled = false,
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    keys = {
+      {
+        "<leader>fF",
+        function()
+          require("telescope.builtin").find_files({
+            hidden = true,
+            no_ignore = true,
+          })
+        end,
+        desc = "Find Plugin File",
+      },
+    },
+  },
 }
