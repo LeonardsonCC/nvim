@@ -1,26 +1,63 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
+local function map(mode, lhs, rhs, opts)
+  local keys = require("lazy.core.handler").handlers.keys
+  ---@cast keys LazyKeysHandler
+  -- do not create the keymap if a lazy keys handler exists
+  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+    vim.keymap.set(mode, lhs, rhs, opts)
+  end
+end
+
 -- Escape
-vim.keymap.set("i", "jk", "<Esc>")
-vim.keymap.set("i", "kj", "<Esc>")
+map("i", "jk", "<Esc>")
+map("i", "kj", "<Esc>")
 
 -- Center when moving around
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
+map("n", "n", "nzzzv")
+map("n", "N", "Nzzzv")
 
 -- better indent
-vim.keymap.set("v", ">", ">gv")
-vim.keymap.set("v", "<", "<gv")
+map("v", ">", ">gv")
+map("v", "<", "<gv")
 
 -- better copy and paste from clipboard
-vim.keymap.set("v", "<Leader>y", '"+y')
-vim.keymap.set("v", "<Leader>yy", '"+yy')
+map("v", "<Leader>y", '"+y')
+map("v", "<Leader>yy", '"+yy')
 
 -- yanky
-vim.keymap.set("n", "<c-n>", "<Plug>(YankyCycleForward)")
-vim.keymap.set("n", "<c-p>", "<Plug>(YankyCycleBackward)")
-vim.keymap.set("n", "<Leader>p", ":Telescope yank_history<CR>")
-vim.keymap.set("n", "<c-y>", ":Telescope yank_history<CR>")
+map("n", "<c-n>", "<Plug>(YankyCycleForward)")
+map("n", "<c-p>", "<Plug>(YankyCycleBackward)")
+map("n", "<Leader>p", ":Telescope yank_history<CR>")
+map("n", "<c-y>", ":Telescope yank_history<CR>")
+map("i", "<c-y>", ":Telescope yank_history<CR>")
+
+-- go lsp
+map("n", "<Leader>ctt", ":GoTest -F<CR>", {
+  desc = "Run Go tests",
+})
+map("n", "<Leader>ctf", ":GoTestFile -F<CR>", {
+  desc = "Run Go file test",
+})
+map("n", "<Leader>ctF", ":GoTestFunc -F<CR>", {
+  desc = "Run Go func test",
+})
+map("n", "<Leader>cD", ":GoDoc ", {
+  desc = "Run Go func test",
+})
+map("n", "<Leader>co", ":GoPkgOutline<CR>", {
+  desc = "Open pkg outline",
+})
+map("n", "<Leader>cTa", ":GoAddTag<CR>", {
+  desc = "Add tags",
+})
+map("n", "<Leader>cTr", ":GoRmTag<CR>", {
+  desc = "Remove tags",
+})
+map("n", "<c-O>", ":GoAlt<CR>", {
+  desc = "Go to test/back to code",
+  noremap = true,
+})

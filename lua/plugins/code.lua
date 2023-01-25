@@ -46,4 +46,14 @@ return {
       }
     end,
   },
+  -- Go
+  {
+    "ray-x/go.nvim",
+    dependencies = {
+      "ray-x/guihua.lua",
+    },
+    opts = function()
+      require("go").setup({})
+    end,
+  },
 }
