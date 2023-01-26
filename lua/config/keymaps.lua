@@ -57,7 +57,7 @@ map("n", "<Leader>cTa", ":GoAddTag<CR>", {
 map("n", "<Leader>cTr", ":GoRmTag<CR>", {
   desc = "Remove tags",
 })
-map("n", "<c-O>", ":GoAlt<CR>", {
+map("n", "go", ":GoAlt<CR>", {
   desc = "Go to test/back to code",
   noremap = true,
 })

@@ -20,7 +20,10 @@ return {
   },
   {
     "rcarriga/nvim-notify",
-    enabled = false,
+    opts = function()
+      vim.cmd([[ highlight NotifyBackground guibg=#000000 ]])
+      return {}
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
