@@ -63,9 +63,9 @@ map("n", "go", ":GoAlt<CR>", {
 })
 
 -- idk why but it is using ESC instead of ALT
-map("n", "<A-j>", "", { desc = "Move down" })
-map("v", "<A-j>", "", { desc = "Move down" })
-map("i", "<A-j>", "", { desc = "Move down" })
-map("n", "<A-k>", "", { desc = "Move up" })
-map("v", "<A-k>", "", { desc = "Move up" })
-map("i", "<A-k>", "", { desc = "Move up" })
+-- map("n", "<A-j>", "", { desc = "Move down" })
+-- map("v", "<A-j>", "", { desc = "Move down" })
+-- map("i", "<A-j>", "", { desc = "Move down" })
+-- map("n", "<A-k>", "", { desc = "Move up" })
+-- map("v", "<A-k>", "", { desc = "Move up" })
+-- map("i", "<A-k>", "", { desc = "Move up" })

@@ -12,6 +12,12 @@ return {
     },
   },
   {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "tokyonight",
+    },
+  },
+  {
     "gbprod/yanky.nvim",
     opts = function()
       require("yanky").setup({})
