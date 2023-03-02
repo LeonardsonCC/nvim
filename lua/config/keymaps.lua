@@ -10,6 +10,13 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
+-- FzfLua
+map("n", "<Leader>ff", require("fzf-lua").git_files)
+map("n", "<Leader>fF", require("fzf-lua").files)
+map("n", "<Leader><Leader>", require("fzf-lua").git_files)
+map("n", "<Leader>sg", require("fzf-lua").grep_project)
+map("n", "<Leader>sd", require("fzf-lua").diagnostics_workspace)
+
 -- Escape
 map("i", "jk", "<Esc>")
 map("i", "kj", "<Esc>")
@@ -63,9 +70,9 @@ map("n", "go", ":GoAlt<CR>", {
 })
 
 -- idk why but it is using ESC instead of ALT
-map("n", "<A-j>", "", { desc = "Move down" })
-map("v", "<A-j>", "", { desc = "Move down" })
-map("i", "<A-j>", "", { desc = "Move down" })
-map("n", "<A-k>", "", { desc = "Move up" })
-map("v", "<A-k>", "", { desc = "Move up" })
-map("i", "<A-k>", "", { desc = "Move up" })
+-- map("n", "<A-j>", "", { desc = "Move down" })
+-- map("v", "<A-j>", "", { desc = "Move down" })
+-- map("i", "<A-j>", "", { desc = "Move down" })
+-- map("n", "<A-k>", "", { desc = "Move up" })
+-- map("v", "<A-k>", "", { desc = "Move up" })
+-- map("i", "<A-k>", "", { desc = "Move up" })
