@@ -15,6 +15,7 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "tokyonight",
+      splitbelow = false,
     },
   },
   {
@@ -46,4 +47,17 @@ return {
       },
     },
   },
+  -- {
+  --   "jackMort/ChatGPT.nvim",
+  --   opts = function()
+  --     require("chatgpt").setup({
+  --       -- optional configuration
+  --     })
+  --   end,
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
+  --     "nvim-lua/plenary.nvim",
+  --     "nvim-telescope/telescope.nvim",
+  --   },
+  -- },
 }

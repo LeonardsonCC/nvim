@@ -3,4 +3,5 @@
 -- Add any additional options here
 
 vim.opt.numberwidth = 4
+vim.opt.splitbelow = false
 -- vim.opt.statuscolumn = "%=%{v:virtnum < 1 ? (v:relnum ? v:relnum : v:lnum < 10 ? v:lnum . '  ' : v:lnum) : ''}%=%s"

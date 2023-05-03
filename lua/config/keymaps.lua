@@ -11,11 +11,11 @@ local function map(mode, lhs, rhs, opts)
 end
 
 -- FzfLua
-map("n", "<Leader>ff", require("fzf-lua").git_files)
-map("n", "<Leader>fF", require("fzf-lua").files)
-map("n", "<Leader><Leader>", require("fzf-lua").git_files)
-map("n", "<Leader>sg", require("fzf-lua").grep_project)
-map("n", "<Leader>sd", require("fzf-lua").diagnostics_workspace)
+-- map("n", "<Leader>ff", require("fzf-lua").git_files)
+-- map("n", "<Leader>fF", require("fzf-lua").files)
+-- map("n", "<Leader><Leader>", require("fzf-lua").git_files)
+-- map("n", "<Leader>sg", require("fzf-lua").grep_project)
+-- map("n", "<Leader>sd", require("fzf-lua").diagnostics_workspace)
 
 -- Escape
 map("i", "jk", "<Esc>")
