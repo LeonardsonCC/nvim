@@ -56,4 +56,14 @@ return {
       require("go").setup({})
     end,
   },
+  {
+    "LeonardsonCC/nvim-goc.lua",
+    init = function()
+      local goc = require("nvim-goc")
+      goc.setup()
+
+      -- TODO: make it toggle
+      vim.keymap.set("n", "<Leader>ctc", goc.ToggleCoverage, { desc = "Code coverage" })
+    end,
+  },
 }
