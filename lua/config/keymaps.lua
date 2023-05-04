@@ -42,33 +42,6 @@ map("n", "<Leader>p", ":Telescope yank_history<CR>")
 map("n", "<c-y>", ":Telescope yank_history<CR>")
 map("i", "<c-y>", ":Telescope yank_history<CR>")
 
--- go lsp
-map("n", "<Leader>ctt", ":GoTest -F<CR>", {
-  desc = "Run Go tests",
-})
-map("n", "<Leader>ctf", ":GoTestFile -F<CR>", {
-  desc = "Run Go file test",
-})
-map("n", "<Leader>ctF", ":GoTestFunc -F<CR>", {
-  desc = "Run Go func test",
-})
-map("n", "<Leader>cD", ":GoDoc ", {
-  desc = "Run Go func test",
-})
-map("n", "<Leader>co", ":GoPkgOutline<CR>", {
-  desc = "Open pkg outline",
-})
-map("n", "<Leader>cTa", ":GoAddTag<CR>", {
-  desc = "Add tags",
-})
-map("n", "<Leader>cTr", ":GoRmTag<CR>", {
-  desc = "Remove tags",
-})
-map("n", "go", ":GoAlt<CR>", {
-  desc = "Go to test/back to code",
-  noremap = true,
-})
-
 -- idk why but it is using ESC instead of ALT
 map("n", "<A-j>", "", { desc = "Move down" })
 map("v", "<A-j>", "", { desc = "Move down" })
