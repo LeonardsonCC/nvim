@@ -51,12 +51,43 @@ local plugins = {
     "tpope/vim-fugitive",
     lazy = false,
   },
-
-  -- To make a plugin not be loaded
-  -- {
-  --   "NvChad/nvim-colorizer.lua",
-  --   enabled = false
-  -- },
+  {
+    "ggandor/flit.nvim",
+    dependencies = {
+      {
+        "ggandor/leap.nvim",
+      },
+    },
+    config = function()
+      require("flit").setup {
+        keys = { f = "f", F = "F", t = "t", T = "T" },
+        labeled_modes = "nvx",
+        multiline = true,
+        opts = {},
+      }
+    end,
+    lazy = false,
+  },
+  {
+    "nvim-pack/nvim-spectre",
+    keys = {
+      { "<leader>S", '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" } },
+      {
+        "<leader>sw",
+        '<cmd>lua require("spectre").open_visual({select_word=true})<CR>',
+        { desc = "Search current word" },
+      },
+      {
+        "<leader>sp",
+        '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>',
+        { desc = "Search on current file" },
+      },
+    },
+  },
+  {
+    "mg979/vim-visual-multi",
+    lazy = false,
+  },
 
   -- All NvChad plugins are lazy-loaded by default
   -- For a plugin to be loaded, you will need to set either `ft`, `cmd`, `keys`, `event`, or set `lazy = false`

@@ -1,6 +1,12 @@
 ---@type MappingsTable
 local M = {}
 
+M.disabled = {
+  n = {
+    ["<C-n>"] = "",
+  },
+}
+
 M.general = {
   n = {
     ["<leader>gg"] = { "<cmd>Git<CR>", "FuGITive" },
