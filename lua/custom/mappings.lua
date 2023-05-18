@@ -29,6 +29,24 @@ M.tabufline = {
       end,
       "Goto prev buffer",
     },
+
+    ["<leader>bd"] = {
+      function()
+        require("nvchad_ui.tabufline").close_buffer()
+      end,
+      "Close buffer",
+    },
+  },
+}
+
+M.lspconfig = {
+  n = {
+    ["<leader>d"] = {
+      function()
+        vim.diagnostic.open_float { border = "rounded" }
+      end,
+      "Floating diagnostic",
+    },
   },
 }
 
