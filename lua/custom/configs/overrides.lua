@@ -34,6 +34,12 @@ M.mason = {
     "deno",
     "prettier",
 
+    -- go stuff
+    "gopls",
+    "go",
+    "golangci-lint",
+    "goimports",
+
     -- c/cpp stuff
     "clangd",
     "clang-format",
