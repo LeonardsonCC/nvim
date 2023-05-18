@@ -8,10 +8,15 @@ autocmd("VimResized", {
   command = "tabdo wincmd =",
 })
 
--- Autosave go files
+-- Autoformat go files
 autocmd("BufWritePre", {
   pattern = { "*.go", "*.lua" },
   command = "lua vim.lsp.buf.format { async = false }",
+})
+-- format json files using jq
+autocmd("FileType", {
+  pattern = "json",
+  command = 'lua vim.keymap.set("n", "<leader>fm", "<cmd>%!jq .<cr>", { noremap = false })',
 })
 
 -- close spectre
