@@ -1,3 +1,5 @@
+local qf = require "custom.nice-functions.quickfix"
+
 ---@type MappingsTable
 local M = {}
 
@@ -10,6 +12,15 @@ M.disabled = {
 M.general = {
   n = {
     ["<leader>gg"] = { "<cmd>Git<CR>", "FuGITive" },
+    ["<leader>q"] = { qf.toggle_qf, "Close quickfix list" },
+    ["<C-d>"] = { "<C-d>zz", "center when moving around" },
+    ["<C-u>"] = { "<C-u>zz", "center when moving around" },
+    ["n"] = { "nzzzv", "center when moving around" },
+    ["N"] = { "Nzzzv", "center when moving around" },
+  },
+  v = {
+    [">"] = { ">gv", "better indent" },
+    ["<"] = { "<gv", "better indent" },
   },
 }
 
@@ -53,6 +64,12 @@ M.lspconfig = {
       end,
       "Floating diagnostic",
     },
+  },
+}
+
+M.go = {
+  n = {
+    ["<leader>gt"] = { "<cmd>GoTest -f<cr>", "Run Go test" },
   },
 }
 

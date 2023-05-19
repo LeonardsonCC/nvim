@@ -1,6 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
-
-require "custom.fugitive"
+local addft = require "custom.nice-functions.add-to-filetype"
 
 -- Auto resize panes when resizing nvim window
 autocmd("VimResized", {
@@ -19,11 +18,12 @@ autocmd("FileType", {
   command = 'lua vim.keymap.set("n", "<leader>fm", "<cmd>%!jq .<cr>", { noremap = false })',
 })
 
--- close spectre
 autocmd("FileType", {
-  pattern = "spectre_panel",
-  command = 'lua vim.keymap.set("n", "q", "<cmd>q<CR>")',
+  pattern = { "fugitive", "spectre_panel" },
+  command = addft.qKeymap,
 })
 
 -- Leap backdrop
 vim.api.nvim_set_hl(0, "LeapBackdrop", { fg = "#777777" })
+
+vim.o.scrolloff = 10
