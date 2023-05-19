@@ -89,6 +89,15 @@ local plugins = {
     lazy = false,
   },
   {
+    "LeonardsonCC/nvim-goc.lua",
+    config = function()
+      require("nvim-goc").setup { verticalSplit = false }
+      -- creates a command to remap just in mappings
+      vim.api.nvim_create_user_command("GoCoc", require("nvim-goc").ToggleCoverage, {})
+    end,
+    ft = { "go", "gomod" },
+  },
+  {
     "ray-x/go.nvim",
     dependencies = {
       "ray-x/guihua.lua",

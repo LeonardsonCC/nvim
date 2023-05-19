@@ -69,7 +69,9 @@ M.lspconfig = {
 
 M.go = {
   n = {
-    ["<leader>gt"] = { "<cmd>GoTest -f<cr>", "Run Go test" },
+    ["<leader>gtr"] = { "<cmd>GoTest -f<cr>", "Run Go test" },
+    ["<leader>gtw"] = { "<cmd>GoTestSum -w<cr>", "Watch files and run Go tests" },
+    ["<leader>gtc"] = { "<cmd>GoCoc<cr>", "Toggle Go coverage" },
   },
 }
 
