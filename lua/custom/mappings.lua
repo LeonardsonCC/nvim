@@ -71,6 +71,7 @@ M.go = {
   n = {
     ["<leader>gtr"] = { "<cmd>GoTest -f<cr>", "Run Go test" },
     ["<leader>gtw"] = { "<cmd>GoTestSum -w<cr>", "Watch files and run Go tests" },
+    ["<leader>gtl"] = { "<cmd>GoCodeLenAct<cr>", "Code Lens actions" },
     ["<leader>gtc"] = { "<cmd>GoCoc<cr>", "Toggle Go coverage" },
   },
 }
