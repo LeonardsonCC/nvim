@@ -6,6 +6,7 @@ local M = {}
 M.disabled = {
   n = {
     ["<C-n>"] = "",
+    ["<leader>gt"] = "",
   },
 }
 
@@ -70,6 +71,7 @@ M.lspconfig = {
 M.go = {
   n = {
     ["<leader>gtr"] = { "<cmd>GoTest -f<cr>", "Run Go test" },
+    ["<leader>gtp"] = { "<cmd>GoTestPkg<cr>", "Run Go test to a package" },
     ["<leader>gtw"] = { "<cmd>GoTestSum -w<cr>", "Watch files and run Go tests" },
     ["<leader>gtl"] = { "<cmd>GoCodeLenAct<cr>", "Code Lens actions" },
     ["<leader>gtc"] = { "<cmd>GoCoc<cr>", "Toggle Go coverage" },
