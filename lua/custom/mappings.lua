@@ -78,4 +78,33 @@ M.go = {
   },
 }
 
+M.harpoon = {
+  n = {
+    ["<A-a>"] = {
+      function()
+        require("harpoon.mark").add_file()
+      end,
+      "Add file to harpoon",
+    },
+    ["<A-o>"] = {
+      function()
+        require("harpoon.ui").toggle_quick_menu()
+      end,
+      "Open menu",
+    },
+    ["<A-n>"] = {
+      function()
+        require("harpoon.ui").nav_next()
+      end,
+      "Next harpoon file",
+    },
+    ["<A-p>"] = {
+      function()
+        require("harpoon.ui").nav_prev()
+      end,
+      "Previous harpoon file",
+    },
+  },
+}
+
 return M

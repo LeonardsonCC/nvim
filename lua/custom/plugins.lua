@@ -126,6 +126,20 @@ local plugins = {
     },
     lazy = false,
   },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      { "<leader>xx", "<cmd>TroubleToggle workspace_diagnostics<CR>", { desc = "Open Trouble" } },
+    },
+  },
+  {
+    "ThePrimeagen/harpoon",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    lazy = false,
+  },
 }
 
 return plugins
