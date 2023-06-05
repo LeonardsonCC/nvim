@@ -13,6 +13,7 @@ local sources = {
   b.formatting.prettier, -- so prettier works only on these filetypes
   b.formatting.goimports,
   b.formatting.gofmt,
+  b.diagnostics.golangci_lint,
 
   -- Lua
   b.formatting.stylua,
