@@ -60,6 +60,10 @@ M.nvimtree = {
       },
     },
   },
+
+  view = {
+    width = {},
+  },
 }
 
 return M
