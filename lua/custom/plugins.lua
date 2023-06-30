@@ -4,7 +4,6 @@ local overrides = require "custom.configs.overrides"
 local plugins = {
 
   -- Override plugin definition options
-
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -146,6 +145,13 @@ local plugins = {
   {
     "folke/zen-mode.nvim",
     opts = {},
+    lazy = false,
+  },
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    opts = function()
+      require("lsp_lines").setup()
+    end,
     lazy = false,
   },
 }
