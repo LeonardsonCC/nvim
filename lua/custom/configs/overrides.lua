@@ -59,6 +59,19 @@ M.nvimtree = {
         git = true,
       },
     },
+    indent_markers = {
+      enable = true,
+    },
+
+    icons = {
+      glyphs = {
+        folder = {
+          default = "",
+          open = "",
+          symlink = "",
+        },
+      },
+    },
   },
 
   view = {

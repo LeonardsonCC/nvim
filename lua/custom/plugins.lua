@@ -46,11 +46,6 @@ local plugins = {
       require("better_escape").setup()
     end,
   },
-
-  {
-    "tpope/vim-fugitive",
-    lazy = false,
-  },
   {
     "ggandor/flit.nvim",
     dependencies = {
@@ -138,6 +133,19 @@ local plugins = {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
+    lazy = false,
+  },
+  {
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    lazy = false,
+  },
+  {
+    "folke/zen-mode.nvim",
+    opts = {},
     lazy = false,
   },
 }

@@ -17,6 +17,7 @@
   "harpoon": { "branch": "master", "commit": "8cb54c4003045fe1b690de96638d334de9449546" },
   "indent-blankline.nvim": { "branch": "master", "commit": "ceaf730b13e332cd76600d9795722413c236c684" },
   "lazy.nvim": { "branch": "main", "commit": "67ae8bbbe3985e380b98abeaf6c567c422b29746" },
+  "lazygit.nvim": { "branch": "main", "commit": "3466e48439601445e26c65635421625886f2d0c0" },
   "leap.nvim": { "branch": "main", "commit": "2950d4826fb92ec3b56c59b5d4f2d575a84cb3fa" },
   "mason.nvim": { "branch": "main", "commit": "08b2fd308e0107eab9f0b59d570b69089fd0b522" },
   "null-ls.nvim": { "branch": "main", "commit": "77e53bc3bac34cc273be8ed9eb9ab78bcf67fa48" },
@@ -38,5 +39,6 @@
   "ui": { "branch": "v2.0", "commit": "1619f0178ecea41321a14ea8bb577b6b131a1153" },
   "vim-fugitive": { "branch": "master", "commit": "5f0d280b517cacb16f59316659966c7ca5e2bea2" },
   "vim-visual-multi": { "branch": "master", "commit": "724bd53adfbaf32e129b001658b45d4c5c29ca1a" },
-  "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" }
+  "which-key.nvim": { "branch": "main", "commit": "e271c28118998c93a14d189af3395812a1aa646c" },
+  "zen-mode.nvim": { "branch": "main", "commit": "68f554702de63f4b7b6b6d4bcb10178f41a0acc7" }
 }

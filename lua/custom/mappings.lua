@@ -12,7 +12,8 @@ M.disabled = {
 
 M.general = {
   n = {
-    ["<leader>gg"] = { "<cmd>Git<CR>", "FuGITive" },
+    ["<leader>zz"] = { "<cmd>ZenMode<CR>", "ZenMode" },
+    ["<leader>gg"] = { "<cmd>LazyGit<CR>", "LazyGit" },
     ["<leader>q"] = { qf.toggle_qf, "Close quickfix list" },
     ["<C-d>"] = { "<C-d>zz", "center when moving around" },
     ["<C-u>"] = { "<C-u>zz", "center when moving around" },
