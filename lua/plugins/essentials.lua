@@ -6,4 +6,8 @@ return {
     end,
     lazy = false,
   },
+  {
+    "mg979/vim-visual-multi",
+    lazy = false,
+  },
 }
