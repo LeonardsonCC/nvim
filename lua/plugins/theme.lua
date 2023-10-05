@@ -1,5 +1,8 @@
 return {
   {
+    "kdheepak/monochrome.nvim",
+  },
+  {
     "folke/tokyonight.nvim",
     opts = {
       transparent = true,

@@ -5,6 +5,11 @@ vim.keymap.set("n", "<A-k>", "", { desc = "Move up" })
 vim.keymap.set("i", "<A-j>", "", { desc = "Move down" })
 vim.keymap.set("n", "<A-j>", "", { desc = "Move down" })
 vim.keymap.set("i", "<A-k>", "", { desc = "Move up" })
+vim.keymap.set("v", "<A-k>", "", { desc = "Move up" })
+vim.keymap.set("v", "<A-j>", "", { desc = "Move down" })
+
+vim.keymap.set("n", "<leader>gg", "<CMD>Neogit<CR>", { desc = "Move down" })
+vim.keymap.set("n", "<leader>gG", "<CMD>Neogit<CR>", { desc = "Move down" })
 
 vim.keymap.set("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
