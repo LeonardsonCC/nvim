@@ -8,9 +8,6 @@ vim.keymap.set("i", "<A-k>", "", { desc = "Move up" })
 vim.keymap.set("v", "<A-k>", "", { desc = "Move up" })
 vim.keymap.set("v", "<A-j>", "", { desc = "Move down" })
 
-vim.keymap.set("n", "<leader>gg", "<CMD>Neogit<CR>", { desc = "Move down" })
-vim.keymap.set("n", "<leader>gG", "<CMD>Neogit<CR>", { desc = "Move down" })
-
 vim.keymap.set("n", "<leader>/", function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
