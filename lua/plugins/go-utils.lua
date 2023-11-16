@@ -12,5 +12,18 @@ return {
     event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+    keys = {
+      { ",gf", "<cmd>GoTestFile<CR>", desc = "Go Test File" },
+    },
+  },
+  {
+    "LeonardsonCC/nvim-goc.lua",
+    event = { "VeryLazy" },
+    config = function()
+      local goc = require("nvim-goc")
+      goc.setup({ verticalSplit = false })
+
+      vim.keymap.set("n", ",gc", goc.ToggleCoverage, { silent = true, desc = "Go Code Coverage" })
+    end,
   },
 }
