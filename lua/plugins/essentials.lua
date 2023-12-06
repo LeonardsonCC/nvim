@@ -36,7 +36,26 @@ return {
     "Wansmer/symbol-usage.nvim",
     event = "BufReadPre",
     config = function()
-      require("symbol-usage").setup()
+      require("symbol-usage").setup({})
+    end,
+  },
+  {
+    "ruifm/gitlinker.nvim",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = function()
+      require("gitlinker").setup()
+      vim.api.nvim_set_keymap(
+        "n",
+        "<leader>gb",
+        '<cmd>lua require"gitlinker".get_buf_range_url("n", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+        { silent = true, desc = "Open in github" }
+      )
+      vim.api.nvim_set_keymap(
+        "v",
+        "<leader>gb",
+        '<cmd>lua require"gitlinker".get_buf_range_url("v", {action_callback = require"gitlinker.actions".open_in_browser})<cr>',
+        { desc = "Open in github" }
+      )
     end,
   },
 }
