@@ -14,6 +14,8 @@ return {
     build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
     keys = {
       { ",gf", "<cmd>GoTestFile<CR>", desc = "Go Test File" },
+      { ",gp", "<cmd>GoTestPkg<CR>", desc = "Go Test Package" },
+      { ",gp", "<cmd>GoTestPkg<CR>", desc = "Go Test Package" },
     },
   },
   {
