@@ -69,15 +69,6 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   -- NOTE: First, some plugins that don't require any configuration
 
-  -- Git related plugins
-  {
-    'tpope/vim-fugitive',
-    keys = {
-      { '<leader>gg', '<cmd>Git<cr>', desc = 'FuGITive' },
-    },
-  },
-  'tpope/vim-rhubarb',
-
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
@@ -339,6 +330,8 @@ vim.wo.signcolumn = 'yes'
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
+
+vim.o.guicursor = ''
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
