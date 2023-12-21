@@ -7,7 +7,14 @@ return {
       'nvim-treesitter/nvim-treesitter',
     },
     config = function()
-      require('go').setup()
+      require('go').setup({
+        lsp_inlay_hints = {
+          enable = true,
+          -- hint style, set to 'eol' for end-of-line hints, 'inlay' for inline hints
+          -- inlay only avalible for 0.10.x
+          style = 'inlay',
+        },
+      })
     end,
     event = { 'CmdlineEnter' },
     ft = { 'go', 'gomod' },
