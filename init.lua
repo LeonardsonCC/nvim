@@ -196,6 +196,7 @@ require('lazy').setup({
       })
       vim.cmd([[colorscheme tokyonight]])
     end,
+    lazy = false,
   },
 
   {
@@ -736,8 +737,8 @@ cmp.setup({
     end, { 'i', 's' }),
   }),
   sources = {
-    { name = 'nvim_lsp' },
-    { name = 'luasnip' },
-    { name = 'path' },
+    { name = 'nvim_lsp', priority = 1000 },
+    { name = 'luasnip', priority = 750 },
+    { name = 'path', priority = 500 },
   },
 })
