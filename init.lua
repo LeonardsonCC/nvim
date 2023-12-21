@@ -653,7 +653,7 @@ local servers = {
   -- rust_analyzer = {},
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
-  terraform_ls = {},
+  terraformls = {},
 
   lua_ls = {
     Lua = {
