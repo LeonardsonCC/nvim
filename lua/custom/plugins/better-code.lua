@@ -19,4 +19,15 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     opts = {},
   },
+  {
+    'norcalli/nvim-colorizer.lua',
+    opts = {
+      'css',
+      'javascript',
+      'lua',
+      html = {
+        mode = 'foreground',
+      },
+    },
+  },
 }
