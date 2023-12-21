@@ -18,14 +18,14 @@ return {
       { ",gp", "<cmd>GoTestPkg<CR>", desc = "Go Test Package" },
     },
   },
-  {
-    "LeonardsonCC/nvim-goc.lua",
-    event = { "VeryLazy" },
-    config = function()
-      local goc = require("nvim-goc")
-      goc.setup({ verticalSplit = false })
-
-      vim.keymap.set("n", ",gc", goc.ToggleCoverage, { silent = true, desc = "Go Code Coverage" })
-    end,
-  },
+  -- {
+  --   "LeonardsonCC/nvim-goc.lua",
+  --   event = { "VeryLazy" },
+  --   config = function()
+  --     local goc = require("nvim-goc")
+  --     goc.setup({ verticalSplit = false })
+  --
+  --     vim.keymap.set("n", ",gc", goc.ToggleCoverage, { silent = true, desc = "Go Code Coverage" })
+  --   end,
+  -- },
 }
