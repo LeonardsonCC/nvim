@@ -20,6 +20,11 @@ return {
     opts = {},
   },
   {
+    'folke/trouble.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = {},
+  },
+  {
     'norcalli/nvim-colorizer.lua',
     opts = {
       'css',
