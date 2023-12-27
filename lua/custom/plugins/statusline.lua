@@ -141,35 +141,6 @@ return {
       })
 
       ins_left({
-        'filename',
-        cond = conditions.buffer_not_empty,
-        color = { fg = colors.magenta, gui = 'bold' },
-      })
-
-      ins_left({ 'location' })
-
-      ins_left({ 'progress', color = { fg = colors.fg, gui = 'bold' } })
-
-      ins_left({
-        'diagnostics',
-        sources = { 'nvim_diagnostic' },
-        symbols = { error = ' ', warn = ' ', info = ' ' },
-        diagnostics_color = {
-          color_error = { fg = colors.red },
-          color_warn = { fg = colors.yellow },
-          color_info = { fg = colors.cyan },
-        },
-      })
-
-      -- Insert mid section. You can make any number of sections in neovim :)
-      -- for lualine it's any number greater then 2
-      ins_left({
-        function()
-          return '%='
-        end,
-      })
-
-      ins_left({
         -- Lsp server name .
         function()
           local msg = 'No Active Lsp'
@@ -192,6 +163,36 @@ return {
         end,
         icon = ' LSP:',
         color = { fg = '#ffffff', gui = 'bold' },
+      })
+
+      -- ins_left({ 'location' })
+
+      -- ins_left({ 'progress', color = { fg = colors.fg, gui = 'bold' } })
+
+      ins_left({
+        'diagnostics',
+        sources = { 'nvim_diagnostic' },
+        symbols = { error = ' ', warn = ' ', info = ' ' },
+        diagnostics_color = {
+          color_error = { fg = colors.red },
+          color_warn = { fg = colors.yellow },
+          color_info = { fg = colors.cyan },
+        },
+      })
+
+      -- Insert mid section. You can make any number of sections in neovim :)
+      -- for lualine it's any number greater then 2
+      ins_left({
+        function()
+          return '%='
+        end,
+      })
+
+      ins_left({
+        'filename',
+        path = 1,
+        cond = conditions.buffer_not_empty,
+        color = { fg = colors.magenta, gui = 'bold' },
       })
 
       -- Add components to right sections
