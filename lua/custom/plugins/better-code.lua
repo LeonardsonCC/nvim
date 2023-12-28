@@ -44,4 +44,13 @@ return {
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     opts = {},
   },
+  {
+    'nvim-pack/nvim-spectre',
+    keys = {
+      { '<leader>S', '<leader>S', '<cmd>lua require("spectre").toggle()<CR>', desc = '[S]earch and Replace' },
+    },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+  },
 }
