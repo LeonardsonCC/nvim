@@ -35,4 +35,7 @@ return {
       },
     },
   },
+  {
+    'gpanders/editorconfig.nvim',
+  },
 }

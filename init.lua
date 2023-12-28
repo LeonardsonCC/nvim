@@ -597,6 +597,7 @@ local servers = {
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
   terraformls = { filetypes = { 'terraform-vars', 'terraform' } },
+  eslint = {},
 
   lua_ls = {
     Lua = {
@@ -689,4 +690,10 @@ cmp.setup({
 vim.api.nvim_create_autocmd('BufReadPost', {
   pattern = { '*.tfvars' },
   command = 'set filetype=terraform',
+})
+
+-- force fix all from eslint on save
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = { '*.ts', '*.tsx' },
+  command = 'EslintFixAll',
 })
