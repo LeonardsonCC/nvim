@@ -505,7 +505,6 @@ local setup_on_attach = function(name)
       vim.keymap.set('i', keys, func, { buffer = bufnr, desc = desc })
     end
 
-
     nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
     nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
     nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
