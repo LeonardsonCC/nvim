@@ -684,3 +684,9 @@ cmp.setup({
     { name = 'path', priority = 500 },
   },
 })
+
+-- force tfvars syntax to terraform
+vim.api.nvim_create_autocmd('BufReadPost', {
+  pattern = { '*.tfvars' },
+  command = 'set filetype=terraform',
+})
