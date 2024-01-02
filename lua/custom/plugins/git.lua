@@ -87,4 +87,16 @@ return {
       { '<leader>gg', '<cmd>Neogit<cr>', desc = 'NeoGIT' },
     },
   },
+  {
+    'ruifm/gitlinker.nvim',
+    opts = {},
+    dependencies = 'nvim-lua/plenary.nvim',
+    keys = {
+      {
+        '<leader>gb',
+        '<cmd>lua require"gitlinker".get_buf_range_url("n")<cr>',
+        desc = '[G]it [B]rowse',
+      },
+    },
+  },
 }
