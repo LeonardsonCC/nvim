@@ -68,7 +68,7 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   install = {
-    colorscheme = { 'lunar', 'habamax' },
+    colorscheme = { 'cyberdream', 'habamax' },
   },
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -111,47 +111,19 @@ require('lazy').setup({
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
   {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    opts = {},
-    config = function()
-      require('tokyonight').setup({
-        style = 'night',
-        transparent = true,
-        on_highlights = function(hl, c)
-          local prompt = '#2d3149'
-          hl.TelescopeNormal = {
-            bg = c.bg_dark,
-            fg = c.fg_dark,
-          }
-          hl.TelescopeBorder = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-          hl.TelescopePromptNormal = {
-            bg = prompt,
-          }
-          hl.TelescopePromptBorder = {
-            bg = prompt,
-            fg = prompt,
-          }
-          hl.TelescopePromptTitle = {
-            bg = prompt,
-            fg = prompt,
-          }
-          hl.TelescopePreviewTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-          hl.TelescopeResultsTitle = {
-            bg = c.bg_dark,
-            fg = c.bg_dark,
-          }
-        end,
-      })
-      vim.cmd([[colorscheme tokyonight]])
-    end,
+    'scottmckendry/cyberdream.nvim',
     lazy = false,
+    priority = 1000,
+    config = function()
+      require('cyberdream').setup({
+        -- Recommended - see "Configuring" below for more config options
+        transparent = true,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = true,
+      })
+      vim.cmd('colorscheme cyberdream') -- set the colorscheme
+    end,
   },
 
   -- {
