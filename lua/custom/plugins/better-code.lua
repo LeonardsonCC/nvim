@@ -67,4 +67,8 @@ return {
       'nvim-lua/plenary.nvim',
     },
   },
+  {
+    'NStefan002/visual-surround.nvim',
+    opts = {},
+  },
 }

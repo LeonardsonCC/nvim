@@ -93,9 +93,9 @@ return {
     dependencies = 'nvim-lua/plenary.nvim',
     keys = {
       {
-        '<leader>gb',
+        '<leader>gy',
         '<cmd>lua require"gitlinker".get_buf_range_url("n")<cr>',
-        desc = '[G]it [B]rowse',
+        desc = '[G]it [Y]ank link',
       },
     },
   },
