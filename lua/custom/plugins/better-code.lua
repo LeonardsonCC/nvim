@@ -71,4 +71,8 @@ return {
     'NStefan002/visual-surround.nvim',
     opts = {},
   },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    opts = {},
+  },
 }
