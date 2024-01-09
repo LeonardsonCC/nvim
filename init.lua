@@ -672,4 +672,4 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   command = 'set filetype=terraform',
 })
 
-vim.cmd([[hi NormalFloat guibg=#222222 ]])
+vim.cmd([[hi NormalFloat guibg=#141414]])

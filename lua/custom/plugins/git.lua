@@ -67,25 +67,55 @@ return {
       end,
     },
   },
+  -- {
+  --   'NeogitOrg/neogit',
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim', -- required
+  --     'sindrets/diffview.nvim', -- optional - Diff integration
+  --
+  --     -- Only one of these is needed, not both.
+  --     'nvim-telescope/telescope.nvim', -- optional
+  --     'ibhagwan/fzf-lua', -- optional
+  --   },
+  --   config = true,
+  --   opts = {
+  --     status = {
+  --       recent_commit_count = 30,
+  --     },
+  --   },
+  --   keys = {
+  --     { '<leader>gg', '<cmd>Neogit<cr>', desc = 'NeoGIT' },
+  --   },
+  -- },
   {
-    'NeogitOrg/neogit',
-    dependencies = {
-      'nvim-lua/plenary.nvim', -- required
-      'sindrets/diffview.nvim', -- optional - Diff integration
+    'akinsho/toggleterm.nvim',
+    opts = {},
+    config = function()
+      local Terminal = require('toggleterm.terminal').Terminal
+      local lazygit = Terminal:new({
+        cmd = 'lazygit',
+        dir = 'git_dir',
+        direction = 'float',
+        float_opts = {
+          border = 'double',
+        },
+        -- function to run on opening the terminal
+        on_open = function(term)
+          vim.cmd('startinsert!')
+          vim.api.nvim_buf_set_keymap(term.bufnr, 'n', 'q', '<cmd>close<CR>', { noremap = true, silent = true })
+        end,
+        -- function to run on closing the terminal
+        on_close = function(term)
+          vim.cmd('startinsert!')
+        end,
+      })
 
-      -- Only one of these is needed, not both.
-      'nvim-telescope/telescope.nvim', -- optional
-      'ibhagwan/fzf-lua', -- optional
-    },
-    config = true,
-    opts = {
-      status = {
-        recent_commit_count = 30,
-      },
-    },
-    keys = {
-      { '<leader>gg', '<cmd>Neogit<cr>', desc = 'NeoGIT' },
-    },
+      function _lazygit_toggle()
+        lazygit:toggle()
+      end
+
+      vim.keymap.set('n', '<Leader>gg', _lazygit_toggle, { desc = '[G]it' })
+    end,
   },
   {
     'ruifm/gitlinker.nvim',
