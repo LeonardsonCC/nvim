@@ -673,3 +673,14 @@ vim.api.nvim_create_autocmd('BufReadPost', {
 })
 
 vim.cmd([[hi NormalFloat guibg=#141414]])
+
+vim.cmd([[set cursorline]])
+vim.cmd([[hi CursorLine term=bold cterm=bold guibg=#141414]])
+vim.cmd([[hi TelescopePreviewLine term=bold cterm=bold guibg=#343434]])
+
+vim.opt.laststatus = 3
+
+-- vim.cmd([[set winhighlight=Normal:MyNormal,NormalNC:MyNormalNC]])
+-- vim.cmd([[hi MyNormal guibg=#141414]])
+
+vim.opt.winbar = '%f'
