@@ -29,7 +29,8 @@ return {
       local goc = require('nvim-goc')
       goc.setup({ verticalSplit = false })
 
-      vim.keymap.set('n', ',gc', goc.ToggleCoverage, { silent = true, desc = 'Go Code Coverage' })
+      vim.keymap.set('n', '<leader>Tc', goc.Coverage, { silent = true, desc = 'Go Code Coverage' })
+      vim.keymap.set('n', '<leader>Tcc', goc.ClearCoverage, { silent = true, desc = 'Go Code Coverage' })
     end,
   },
 }

@@ -120,7 +120,7 @@ require('lazy').setup({
         transparent = true,
         italic_comments = true,
         hide_fillchars = true,
-        borderless_telescope = true,
+        borderless_telescope = false,
       })
       vim.cmd('colorscheme cyberdream') -- set the colorscheme
     end,
@@ -476,7 +476,7 @@ local setup_on_attach = function(name)
     nmap('gho', '<cmd>Lspsaga outgoing_calls<cr>', '[G]oto [H]ierarchy [O]utgoing calls')
 
     -- See `:help K` for why this keymap
-    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+    nmap('K', '<cmd>Lspsaga hover_doc<cr>', 'Hover Documentation')
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
     imap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
@@ -571,6 +571,7 @@ local servers = {
       semanticTokens = true,
     },
   },
+  golangci_lint_ls = {},
 
   -- pyright = {},
   -- rust_analyzer = {},
@@ -627,6 +628,10 @@ cmp.setup({
       luasnip.lsp_expand(args.body)
     end,
   },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
   completion = {
     completeopt = 'menu,menuone,noinsert',
   },
@@ -672,11 +677,12 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   command = 'set filetype=terraform',
 })
 
-vim.cmd([[hi NormalFloat guibg=#141414]])
+-- vim.cmd([[hi NormalFloat guibg=#141414]])
 
 vim.cmd([[set cursorline]])
 vim.cmd([[hi CursorLine term=bold cterm=bold guibg=#141414]])
 vim.cmd([[hi TelescopePreviewLine term=bold cterm=bold guibg=#343434]])
+vim.cmd([[hi Visual guibg=#343434]])
 
 vim.opt.laststatus = 3
 
