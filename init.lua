@@ -344,6 +344,7 @@ local function telescope_live_grep_open_files()
 end
 vim.keymap.set('n', '<leader>s/', telescope_live_grep_open_files, { desc = '[S]earch [/] in Open Files' })
 vim.keymap.set('n', '<leader>ss', require('telescope.builtin').builtin, { desc = '[S]earch [S]elect Telescope' })
+vim.keymap.set('n', '<leader>sb', require('telescope.builtin').buffers, { desc = '[S]earch [B]uffers' })
 vim.keymap.set('n', '<leader>sf', function()
   require('telescope.builtin').find_files({
     find_command = { 'rg', '--ignore', '--hidden', '--files', '--iglob', '!.git/*' },
@@ -701,3 +702,11 @@ vim.opt.laststatus = 3
 -- vim.cmd([[hi MyNormal guibg=#141414]])
 
 vim.opt.winbar = '%f'
+
+vim.keymap.set('n', '<leader>tn', '<cmd>set number! norelativenumber<cr>', { desc = '[T]oggle relative line [N]umber' })
+
+vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+vim.keymap.set('n', 'n', 'nzzzv')
+vim.keymap.set('n', 'N', 'Nzzzv')

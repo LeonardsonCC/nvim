@@ -23,6 +23,18 @@ return {
     'folke/trouble.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = {},
+    config = function()
+      vim.keymap.set('n', '[t', function()
+        require('trouble').next({ skip_groups = true, jump = true })
+      end)
+
+      vim.keymap.set('n', ']t', function()
+        require('trouble').previous({ skip_groups = true, jump = true })
+      end)
+    end,
+    keys = {
+      { 'tt', '<cmd>TroubleToggle<cr>', desc = '[T]oggle [T]rouble' },
+    },
   },
   {
     'norcalli/nvim-colorizer.lua',
@@ -110,5 +122,14 @@ return {
       end, { desc = '[T]est [D]ebug' })
       vim.keymap.set('n', '<leader>Tw', ntest.watch.watch, { desc = '[T]est [W]atch' })
     end,
+  },
+
+  {
+    'danymat/neogen',
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    opts = {},
+    keys = {
+      { 'cd', '<cmd>lua require("neogen").generate()<cr>', desc = '[C]ode [D]ocumentation' },
+    },
   },
 }
