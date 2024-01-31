@@ -195,6 +195,7 @@ vim.o.hlsearch = false
 
 -- Make line numbers default
 vim.wo.number = true
+vim.wo.rnu = true
 
 -- Enable mouse mode
 vim.o.mouse = 'a'
@@ -703,7 +704,9 @@ vim.opt.laststatus = 3
 
 vim.opt.winbar = '%f'
 
-vim.keymap.set('n', '<leader>tn', '<cmd>set number! norelativenumber<cr>', { desc = '[T]oggle relative line [N]umber' })
+vim.keymap.set('n', '<leader>tn', function()
+  vim.wo.rnu = not vim.wo.rnu
+end, { desc = '[T]oggle relative line [N]umber' })
 
 vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
