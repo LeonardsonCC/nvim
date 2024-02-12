@@ -139,30 +139,30 @@ return {
       cond = conditions.buffer_not_empty,
     })
 
-    ins_left({
-      -- Lsp server name .
-      function()
-        local msg = 'No Active Lsp'
-        local buf_ft = vim.api.nvim_get_option_value('filetype', {})
-        local clients = vim.lsp.get_clients()
-        local client_names = {}
-        if next(clients) == nil then
-          return msg
-        end
-        for _, client in ipairs(clients) do
-          local filetypes = client.config.filetypes
-          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-            if client.name ~= 'null-ls' then
-              table.insert(client_names, client.name)
-            end
-          end
-        end
-        msg = table.concat(client_names, ', ')
-        return msg
-      end,
-      icon = ' LSP:',
-      color = { fg = '#ffffff', gui = 'bold' },
-    })
+    -- ins_left({
+    --   -- Lsp server name .
+    --   function()
+    --     local msg = 'No Active Lsp'
+    --     local buf_ft = vim.api.nvim_get_option_value('filetype', {})
+    --     local clients = vim.lsp.get_clients()
+    --     local client_names = {}
+    --     if next(clients) == nil then
+    --       return msg
+    --     end
+    --     for _, client in ipairs(clients) do
+    --       local filetypes = client.config.filetypes
+    --       if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+    --         if client.name ~= 'null-ls' then
+    --           table.insert(client_names, client.name)
+    --         end
+    --       end
+    --     end
+    --     msg = table.concat(client_names, ', ')
+    --     return msg
+    --   end,
+    --   icon = ' LSP:',
+    --   color = { fg = '#ffffff', gui = 'bold' },
+    -- })
 
     -- ins_left({ 'location' })
 
@@ -188,26 +188,35 @@ return {
     })
 
     ins_left({
+      'filetype',
+      colored = false, -- Displays filetype icon in color if set to true
+      icon_only = true, -- Display only an icon for filetype
+      icon = { align = 'right' }, -- Display filetype icon on the right hand side
+      color = { fg = colors.magenta, gui = 'bold' },
+    })
+
+    ins_left({
       'filename',
       path = 1,
       cond = conditions.buffer_not_empty,
+      icons_enabled = true,
       color = { fg = colors.magenta, gui = 'bold' },
     })
 
     -- Add components to right sections
-    ins_right({
-      'o:encoding', -- option component same as &encoding in viml
-      fmt = string.upper, -- I'm not sure why it's upper case either ;)
-      cond = conditions.hide_in_width,
-      color = { fg = colors.green, gui = 'bold' },
-    })
+    -- ins_right({
+    --   'o:encoding', -- option component same as &encoding in viml
+    --   fmt = string.upper, -- I'm not sure why it's upper case either ;)
+    --   cond = conditions.hide_in_width,
+    --   color = { fg = colors.green, gui = 'bold' },
+    -- })
 
-    ins_right({
-      'fileformat',
-      fmt = string.upper,
-      icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
-      color = { fg = colors.green, gui = 'bold' },
-    })
+    -- ins_right({
+    --   'fileformat',
+    --   fmt = string.upper,
+    --   icons_enabled = true, -- I think icons are cool but Eviline doesn't have them. sigh
+    --   color = { fg = colors.green, gui = 'bold' },
+    -- })
 
     ins_right({
       'branch',
