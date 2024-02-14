@@ -24,6 +24,7 @@ return {
             ['<C-d>'] = false,
           },
         },
+        file_ignore_patterns = { 'src/mocks/' },
       }),
       extensions = {
         fzf = {
@@ -35,6 +36,24 @@ return {
             -- even more opts
           }),
         },
+      },
+      pickers = {
+        current_buffer_tags = { show_line = false },
+        jumplist = { show_line = false },
+        loclist = { show_line = false },
+        lsp_definitions = { show_line = false },
+        lsp_document_symbols = { show_line = false },
+        lsp_dynamic_workspace_symbols = { show_line = false },
+        lsp_implementations = { show_line = false },
+        lsp_incoming_calls = { show_line = false },
+        lsp_outgoing_calls = { show_line = false },
+        lsp_references = {
+          show_line = false,
+        },
+        lsp_type_definitions = { show_line = false },
+        lsp_workspace_symbols = { show_line = false },
+        quickfix = { show_line = false },
+        tags = { show_line = false },
       },
     })
 
@@ -102,6 +121,8 @@ return {
     vim.keymap.set('n', '<leader>sf', function()
       require('telescope.builtin').find_files({
         find_command = { 'rg', '--ignore', '--hidden', '--files', '--iglob', '!.git/*' },
+        hidden = true,
+        no_ignore = true,
       })
     end, { desc = '[S]earch [F]iles' })
     vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })

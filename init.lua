@@ -410,6 +410,7 @@ mason_lspconfig.setup_handlers({
       on_attach = setup_on_attach(server_name),
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
+      inlay_hints = { enabled = true },
     })
   end,
 })
@@ -490,3 +491,11 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
+
+vim.filetype.add({
+  extension = {
+    conf = 'conf',
+    env = 'dotenv',
+    http = 'http',
+  },
+})

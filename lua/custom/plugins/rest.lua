@@ -1,5 +1,9 @@
 local find_request = function()
-  require('telescope.builtin').find_files({ cwd = '~/dev/requests/' })
+  require('telescope.builtin').find_files({
+    cwd = '~/dev/requests/',
+    hidden = true,
+    no_ignore = true,
+  })
 end
 
 local format_using_jq = function(body)
@@ -38,5 +42,6 @@ return {
     { '<leader>rr', '<plug>RestNvim', desc = '[R]un [R]equest' },
     { '<leader>rc', '<plug>RestNvimPreview', desc = 'Preview [R]equest [C]URL' },
     { '<leader>rs', find_request, desc = '[R]equest [S]earch' },
+    { '<leader>rl', '<Plug>RestNvimLast', desc = '[R]equest [L]ast result' },
   },
 }
