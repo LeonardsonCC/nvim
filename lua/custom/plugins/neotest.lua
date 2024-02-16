@@ -29,7 +29,7 @@ return {
       },
     })
 
-    vim.keymap.set('n', '<leader>tt', ntest.summary.toggle, { desc = '[T]oggle [T]est Summary' })
+    vim.keymap.set('n', '<leader>ts', ntest.summary.toggle, { desc = '[T]oggle [T]est Summary' })
     vim.keymap.set('n', '<leader>Td', function()
       ntest.run.run()
     end, { desc = '[T]est [D]ebug' })
