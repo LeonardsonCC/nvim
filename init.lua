@@ -143,8 +143,8 @@ require('lazy').setup({
           transparency = true,
         },
         highlight_groups = {
-          PmenuSel = { bg = '#282C34', fg = 'NONE' },
-          Pmenu = { fg = '#C5CDD9', bg = '#22252A' },
+          -- PmenuSel = { bg = '#282C34', fg = 'NONE' },
+          -- Pmenu = { fg = '#C5CDD9', bg = '#22252A' },
 
           CmpItemAbbrDeprecated = { fg = '#7E8294', bg = 'NONE', strikethrough = true },
           CmpItemAbbrMatch = { fg = '#82AAFF', bg = 'NONE', bold = true },
