@@ -248,6 +248,8 @@ vim.o.completeopt = 'menuone,noselect'
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+vim.o.shortmess = 'I'
+
 vim.o.scrolloff = 12
 
 -- [[ Basic Keymaps ]]
