@@ -24,7 +24,7 @@ return {
         yellow   = '#ECBE7B',
         cyan     = '#008080',
         darkblue = '#081633',
-        green    = '#98be65',
+        green    = '#00bf60',
         orange   = '#FF8800',
         violet   = '#a9a1e1',
         magenta  = '#c678dd',
@@ -112,7 +112,7 @@ return {
           v = colors.blue,
           [''] = colors.blue,
           V = colors.blue,
-          c = colors.magenta,
+          c = colors.green,
           no = colors.red,
           s = colors.orange,
           S = colors.orange,
@@ -192,7 +192,7 @@ return {
       colored = false, -- Displays filetype icon in color if set to true
       icon_only = true, -- Display only an icon for filetype
       icon = { align = 'right' }, -- Display filetype icon on the right hand side
-      color = { fg = colors.magenta, gui = 'bold' },
+      color = { fg = colors.green, gui = 'bold' },
     })
 
     ins_left({
@@ -200,7 +200,7 @@ return {
       path = 1,
       cond = conditions.buffer_not_empty,
       icons_enabled = true,
-      color = { fg = colors.magenta, gui = 'bold' },
+      color = { fg = colors.green, gui = 'bold' },
     })
 
     -- Add components to right sections

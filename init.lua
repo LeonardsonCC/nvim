@@ -296,6 +296,7 @@ local setup_on_attach = function(name)
 
     nmap('<leader>cr', vim.lsp.buf.rename, '[C]ode [R]ename')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    nmap('<leader>cl', vim.lsp.codelens.run, '[C]ode [L]ens')
     local imap = function(keys, func, desc)
       if desc then
         desc = 'LSP: ' .. desc
@@ -529,8 +530,12 @@ cmp.setup({
 
 vim.cmd([[set cursorline]])
 vim.cmd([[hi CursorLine term=bold cterm=bold guibg=#141414]])
+vim.cmd([[hi CursorLineNr term=bold cterm=bold guifg=#00d264]])
 vim.cmd([[hi TelescopePreviewLine term=bold cterm=bold guibg=#343434]])
 vim.cmd([[hi Visual guibg=#343434]])
+
+-- diagnostics
+vim.cmd([[hi DiagnosticError term=bold cterm=bold guifg=#584264]])
 
 -- winbar
 vim.opt.laststatus = 3
