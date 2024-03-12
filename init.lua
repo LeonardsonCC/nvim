@@ -311,11 +311,9 @@ local setup_on_attach = function(name)
     nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
     nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
     nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-    nmap('ghi', '<cmd>Lspsaga incoming_calls<cr>', '[G]oto [H]ierarchy [I]ncoming calls')
-    nmap('gho', '<cmd>Lspsaga outgoing_calls<cr>', '[G]oto [H]ierarchy [O]utgoing calls')
 
     -- See `:help K` for why this keymap
-    nmap('K', '<cmd>Lspsaga hover_doc<cr>', 'Hover Documentation')
+    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
     nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
     imap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
