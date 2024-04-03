@@ -294,6 +294,7 @@ local setup_on_attach = function(name)
       vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
     end
 
+    nmap('<leader>cf', vim.lsp.buf.format, '[C]ode [F]ormat')
     nmap('<leader>cr', vim.lsp.buf.rename, '[C]ode [R]ename')
     nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
     nmap('<leader>cl', vim.lsp.codelens.run, '[C]ode [L]ens')
@@ -344,9 +345,10 @@ require('which-key').register({
   ['<leader>c'] = { name = '[C]ode', _ = 'which_key_ignore' },
   ['<leader>d'] = { name = '[D]ocument', _ = 'which_key_ignore' },
   ['<leader>g'] = { name = '[G]it', _ = 'which_key_ignore' },
+  ['<leader>G'] = { name = '[G]o', _ = 'which_key_ignore' },
   ['<leader>h'] = { name = 'Git [H]unk', _ = 'which_key_ignore' },
-  ['<leader>r'] = { name = '[R]equests', _ = 'which_key_ignore' },
   ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
+  ['<leader>T'] = { name = '[T]est', _ = 'which_key_ignore' },
   ['<leader>t'] = { name = '[T]oggle', _ = 'which_key_ignore' },
   ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
 })
@@ -559,3 +561,6 @@ vim.filetype.add({
     http = 'http',
   },
 })
+
+-- Terminal
+vim.keymap.set('t', 'jk', '<C-\\><c-n>', { desc = 'quit terminal mode' })
