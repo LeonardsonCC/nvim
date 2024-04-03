@@ -529,6 +529,8 @@ cmp.setup({
   },
 })
 
+vim.cmd([[hi NormalFloat guibg=#141414]])
+
 vim.cmd([[set cursorline]])
 vim.cmd([[hi CursorLine term=bold cterm=bold guibg=#141414]])
 vim.cmd([[hi CursorLineNr term=bold cterm=bold guifg=#00d264]])
