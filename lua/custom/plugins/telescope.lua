@@ -7,17 +7,17 @@ return {
     -- Fuzzy Finder Algorithm which requires local dependencies to be built.
     -- Only load if `make` is available. Make sure you have the system
     -- requirements installed.
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'make',
-      cond = function()
-        return vim.fn.executable('make') == 1
-      end,
-    },
+    -- {
+    --   'nvim-telescope/telescope-fzf-native.nvim',
+    --   build = 'make',
+    --   cond = function()
+    --     return vim.fn.executable('make') == 1
+    --   end,
+    -- },
   },
   config = function()
     require('telescope').setup({
-      defaults = require('telescope.themes').get_ivy({
+      defaults = {
         mappings = {
           i = {
             ['<C-u>'] = false,
@@ -25,16 +25,11 @@ return {
           },
         },
         file_ignore_patterns = { 'src/mocks/' },
-      }),
+      },
       extensions = {
         fzf = {
-          fuzzy = true,
+          fuzzy = false,
           case_mode = 'smart_case',
-        },
-        ['ui-select'] = {
-          require('telescope.themes').get_ivy({
-            -- even more opts
-          }),
         },
       },
       pickers = {
