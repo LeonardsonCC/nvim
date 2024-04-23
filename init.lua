@@ -68,7 +68,7 @@ vim.opt.rtp:prepend(lazypath)
 --    as they will be available in your neovim runtime.
 require('lazy').setup({
   install = {
-    colorscheme = { 'rose-pine', 'habamax' },
+    colorscheme = { 'tokyonight', 'habamax' },
   },
   change_detection = {
     -- automatically check for config file changes and reload the ui
@@ -133,61 +133,6 @@ require('lazy').setup({
 
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim', opts = {} },
-  {
-    'rose-pine/neovim',
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('rose-pine').setup({
-        styles = {
-          transparency = true,
-        },
-        highlight_groups = {
-          -- PmenuSel = { bg = '#282C34', fg = 'NONE' },
-          -- Pmenu = { fg = '#C5CDD9', bg = '#22252A' },
-
-          CmpItemAbbrDeprecated = { fg = '#7E8294', bg = 'NONE', strikethrough = true },
-          CmpItemAbbrMatch = { fg = '#82AAFF', bg = 'NONE', bold = true },
-          CmpItemAbbrMatchFuzzy = { fg = '#82AAFF', bg = 'NONE', bold = true },
-          CmpItemMenu = { fg = '#C792EA', bg = 'NONE', italic = true },
-
-          CmpItemKindField = { fg = '#EED8DA', bg = '#B5585F' },
-          CmpItemKindProperty = { fg = '#EED8DA', bg = '#B5585F' },
-          CmpItemKindEvent = { fg = '#EED8DA', bg = '#B5585F' },
-
-          CmpItemKindText = { fg = '#C3E88D', bg = '#9FBD73' },
-          CmpItemKindEnum = { fg = '#C3E88D', bg = '#9FBD73' },
-          CmpItemKindKeyword = { fg = '#C3E88D', bg = '#9FBD73' },
-
-          CmpItemKindConstant = { fg = '#FFE082', bg = '#D4BB6C' },
-          CmpItemKindConstructor = { fg = '#FFE082', bg = '#D4BB6C' },
-          CmpItemKindReference = { fg = '#FFE082', bg = '#D4BB6C' },
-
-          CmpItemKindFunction = { fg = '#EADFF0', bg = '#A377BF' },
-          CmpItemKindStruct = { fg = '#EADFF0', bg = '#A377BF' },
-          CmpItemKindClass = { fg = '#EADFF0', bg = '#A377BF' },
-          CmpItemKindModule = { fg = '#EADFF0', bg = '#A377BF' },
-          CmpItemKindOperator = { fg = '#EADFF0', bg = '#A377BF' },
-
-          CmpItemKindVariable = { fg = '#C5CDD9', bg = '#7E8294' },
-          CmpItemKindFile = { fg = '#C5CDD9', bg = '#7E8294' },
-
-          CmpItemKindUnit = { fg = '#F5EBD9', bg = '#D4A959' },
-          CmpItemKindSnippet = { fg = '#F5EBD9', bg = '#D4A959' },
-          CmpItemKindFolder = { fg = '#F5EBD9', bg = '#D4A959' },
-
-          CmpItemKindMethod = { fg = '#DDE5F5', bg = '#6C8ED4' },
-          CmpItemKindValue = { fg = '#DDE5F5', bg = '#6C8ED4' },
-          CmpItemKindEnumMember = { fg = '#DDE5F5', bg = '#6C8ED4' },
-
-          CmpItemKindInterface = { fg = '#D8EEEB', bg = '#58B5A8' },
-          CmpItemKindColor = { fg = '#D8EEEB', bg = '#58B5A8' },
-          CmpItemKindTypeParameter = { fg = '#D8EEEB', bg = '#58B5A8' },
-        },
-      })
-      vim.cmd('colorscheme rose-pine') -- set the colorscheme
-    end,
-  },
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -199,7 +144,6 @@ require('lazy').setup({
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
   --    up-to-date with whatever is in the kickstart repo.
   --    Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  --
   --    For additional information see: https://github.com/folke/lazy.nvim#-structuring-your-plugins
   { import = 'custom.plugins' },
 }, {})
@@ -529,16 +473,7 @@ cmp.setup({
   },
 })
 
-vim.cmd([[hi NormalFloat guibg=#141414]])
-
 vim.cmd([[set cursorline]])
-vim.cmd([[hi CursorLine term=bold cterm=bold guibg=#141414]])
-vim.cmd([[hi CursorLineNr term=bold cterm=bold guifg=#00d264]])
-vim.cmd([[hi TelescopePreviewLine term=bold cterm=bold guibg=#343434]])
-vim.cmd([[hi Visual guibg=#343434]])
-
--- diagnostics
-vim.cmd([[hi DiagnosticError term=bold cterm=bold guifg=#584264]])
 
 -- winbar
 vim.opt.laststatus = 3
@@ -563,6 +498,3 @@ vim.filetype.add({
     http = 'http',
   },
 })
-
--- Terminal
-vim.keymap.set('t', 'jk', '<C-\\><c-n>', { desc = 'quit terminal mode' })
