@@ -138,7 +138,7 @@ require('lazy').setup({
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
-  require('kickstart.plugins.autoformat'),
+  -- require('kickstart.plugins.autoformat'),
   require('kickstart.plugins.debug'),
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
@@ -272,9 +272,9 @@ local setup_on_attach = function(name)
     end, '[W]orkspace [L]ist Folders')
 
     -- Create a command `:Format` local to the LSP buffer
-    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-      vim.lsp.buf.format()
-    end, { desc = 'Format current buffer with LSP' })
+    -- vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+    --   vim.lsp.buf.format()
+    -- end, { desc = 'Format current buffer with LSP' })
 
     -- force fix all from eslint on save
     if name == 'eslint' then
@@ -362,7 +362,7 @@ local servers = {
   tsserver = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
   terraformls = { filetypes = { 'terraform-vars', 'terraform' } },
-  eslint = {},
+  -- eslint = {},
 
   lua_ls = {
     Lua = {
