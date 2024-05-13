@@ -33,11 +33,7 @@ return {
               return builtin.foldfunc(args)
             end,
           },
-          condition = {
-            function()
-              return vim.o.foldcolumn ~= '0'
-            end,
-          },
+          condition = { true, builtin.not_empty },
           click = 'v:lua.ScFa',
         },
       },

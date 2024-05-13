@@ -480,6 +480,8 @@ vim.cmd([[set cursorline]])
 vim.opt.laststatus = 3
 vim.opt.winbar = '%f'
 
+vim.opt.inccommand = 'split'
+
 -- toggle
 vim.keymap.set('n', '<leader>tn', function()
   vim.wo.rnu = not vim.wo.rnu
@@ -491,6 +493,18 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
+
+-- resize splits
+vim.keymap.set('n', '<M-l>', '<c-w>5<')
+vim.keymap.set('n', '<M-h>', '<c-w>5>')
+vim.keymap.set('n', '<M-k>', '<c-w>5+')
+vim.keymap.set('n', '<M-j>', '<c-w>5-')
+
+-- move to window
+vim.keymap.set('n', '<C-l>', '<c-w>l')
+vim.keymap.set('n', '<C-h>', '<c-w>h')
+vim.keymap.set('n', '<C-k>', '<c-w>k')
+vim.keymap.set('n', '<C-j>', '<c-w>j')
 
 vim.filetype.add({
   extension = {
