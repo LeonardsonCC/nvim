@@ -25,6 +25,9 @@ return {
           click = 'v:lua.ScLa',
         },
         {
+          text = { ' ' },
+        },
+        {
           text = {
             function(args)
               args.fold.close = ''
