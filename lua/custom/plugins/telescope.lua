@@ -4,18 +4,19 @@ return {
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-ui-select.nvim',
-    -- Fuzzy Finder Algorithm which requires local dependencies to be built.
-    -- Only load if `make` is available. Make sure you have the system
-    -- requirements installed.
-    -- {
-    --   'nvim-telescope/telescope-fzf-native.nvim',
-    --   build = 'make',
-    --   cond = function()
-    --     return vim.fn.executable('make') == 1
-    --   end,
-    -- },
+    {
+      'nvim-telescope/telescope-fzf-native.nvim',
+      build = 'make',
+      cond = function()
+        return vim.fn.executable('make') == 1
+      end,
+    },
+    { 'nvim-telescope/telescope-smart-history.nvim' },
+    { 'kkharji/sqlite.lua' },
   },
   config = function()
+    local data = assert(vim.fn.stdpath('data')) --[[@as string]]
+
     require('telescope').setup({
       defaults = {
         mappings = {
@@ -30,6 +31,10 @@ return {
         fzf = {
           fuzzy = false,
           case_mode = 'smart_case',
+        },
+        history = {
+          path = vim.fs.joinpath(data, 'telescope_history.sqlite3'),
+          limit = 100,
         },
       },
       pickers = {
@@ -55,6 +60,7 @@ return {
     -- Enable telescope fzf native, if installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
+    pcall(require('telescope').load_extension, 'smart_history')
 
     -- Telescope live_grep in git root
     -- Function to find the git root directory based on the current buffer's path
