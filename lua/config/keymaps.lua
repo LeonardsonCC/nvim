@@ -8,3 +8,10 @@ vim.keymap.set("v", ">", ">gv")
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+vim.keymap.set("n", "<A-k>", "", { desc = "Move up" })
+vim.keymap.set("i", "<A-j>", "", { desc = "Move down" })
+vim.keymap.set("n", "<A-j>", "", { desc = "Move down" })
+vim.keymap.set("i", "<A-k>", "", { desc = "Move up" })
+vim.keymap.set("v", "<A-k>", "", { desc = "Move up" })
+vim.keymap.set("v", "<A-j>", "", { desc = "Move down" })
