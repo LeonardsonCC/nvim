@@ -15,38 +15,38 @@ local beautyCmp = function(hl, c)
   hl.CmpItemAbbrMatchFuzzy = { fg = "#82AAFF", bg = "NONE" }
   hl.CmpItemMenu = { fg = "#C792EA", bg = "NONE" }
 
-  hl.CmpItemKindField = { fg = "#EED8DA", bg = "#B5585F" }
-  hl.CmpItemKindProperty = { fg = "#EED8DA", bg = "#B5585F" }
-  hl.CmpItemKindEvent = { fg = "#EED8DA", bg = "#B5585F" }
+  hl.CmpItemKindField = { fg = "#B5585F" }
+  hl.CmpItemKindProperty = { fg = "#B5585F" }
+  hl.CmpItemKindEvent = { fg = "#B5585F" }
 
-  hl.CmpItemKindText = { fg = "#C3E88D", bg = "#9FBD73" }
-  hl.CmpItemKindEnum = { fg = "#C3E88D", bg = "#9FBD73" }
-  hl.CmpItemKindKeyword = { fg = "#C3E88D", bg = "#9FBD73" }
+  hl.CmpItemKindText = { fg = "#9FBD73" }
+  hl.CmpItemKindEnum = { fg = "#9FBD73" }
+  hl.CmpItemKindKeyword = { fg = "#9FBD73" }
 
-  hl.CmpItemKindConstant = { fg = "#FFE082", bg = "#D4BB6C" }
-  hl.CmpItemKindConstructor = { fg = "#FFE082", bg = "#D4BB6C" }
-  hl.CmpItemKindReference = { fg = "#FFE082", bg = "#D4BB6C" }
+  hl.CmpItemKindConstant = { fg = "#D4BB6C" }
+  hl.CmpItemKindConstructor = { fg = "#D4BB6C" }
+  hl.CmpItemKindReference = { fg = "#D4BB6C" }
 
-  hl.CmpItemKindFunction = { fg = "#EADFF0", bg = "#A377BF" }
-  hl.CmpItemKindStruct = { fg = "#EADFF0", bg = "#A377BF" }
-  hl.CmpItemKindClass = { fg = "#EADFF0", bg = "#A377BF" }
-  hl.CmpItemKindModule = { fg = "#EADFF0", bg = "#A377BF" }
-  hl.CmpItemKindOperator = { fg = "#EADFF0", bg = "#A377BF" }
+  hl.CmpItemKindFunction = { fg = "#A377BF" }
+  hl.CmpItemKindStruct = { fg = "#A377BF" }
+  hl.CmpItemKindClass = { fg = "#A377BF" }
+  hl.CmpItemKindModule = { fg = "#A377BF" }
+  hl.CmpItemKindOperator = { fg = "#A377BF" }
 
-  hl.CmpItemKindVariable = { fg = "#C5CDD9", bg = "#7E8294" }
-  hl.CmpItemKindFile = { fg = "#C5CDD9", bg = "#7E8294" }
+  hl.CmpItemKindVariable = { fg = "#7E8294" }
+  hl.CmpItemKindFile = { fg = "#7E8294" }
 
-  hl.CmpItemKindUnit = { fg = "#F5EBD9", bg = "#D4A959" }
-  hl.CmpItemKindSnippet = { fg = "#F5EBD9", bg = "#D4A959" }
-  hl.CmpItemKindFolder = { fg = "#F5EBD9", bg = "#D4A959" }
+  hl.CmpItemKindUnit = { fg = "#D4A959" }
+  hl.CmpItemKindSnippet = { fg = "#D4A959" }
+  hl.CmpItemKindFolder = { fg = "#D4A959" }
 
-  hl.CmpItemKindMethod = { fg = "#DDE5F5", bg = "#6C8ED4" }
-  hl.CmpItemKindValue = { fg = "#DDE5F5", bg = "#6C8ED4" }
-  hl.CmpItemKindEnumMember = { fg = "#DDE5F5", bg = "#6C8ED4" }
+  hl.CmpItemKindMethod = { fg = "#6C8ED4" }
+  hl.CmpItemKindValue = { fg = "#6C8ED4" }
+  hl.CmpItemKindEnumMember = { fg = "#6C8ED4" }
 
-  hl.CmpItemKindInterface = { fg = "#D8EEEB", bg = "#58B5A8" }
-  hl.CmpItemKindColor = { fg = "#D8EEEB", bg = "#58B5A8" }
-  hl.CmpItemKindTypeParameter = { fg = "#D8EEEB", bg = "#58B5A8" }
+  hl.CmpItemKindInterface = { fg = "#58B5A8" }
+  hl.CmpItemKindColor = { fg = "#58B5A8" }
+  hl.CmpItemKindTypeParameter = { fg = "#58B5A8" }
 end
 
 return {
