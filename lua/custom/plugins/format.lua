@@ -14,7 +14,7 @@ return { -- Autoformat
   },
   opts = {
     notify_on_error = false,
-    format_on_save = function(bufnr) end,
+    -- format_on_save = function(bufnr) end,
     formatters_by_ft = {
       lua = { 'stylua' },
       javascript = { { 'prettierd', 'prettier' } },

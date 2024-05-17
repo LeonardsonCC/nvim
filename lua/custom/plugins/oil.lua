@@ -3,7 +3,11 @@ return {
   opts = {
     default_file_explorer = true,
   },
-  keys = {
-    { '<leader>tf', '<cmd>Oil<cr>', desc = 'File Manager' },
-  },
+  keys = function()
+    local oil = require('oil')
+    return {
+      { '<leader>tf', '<cmd>Oil<cr>', desc = 'File Manager' },
+      { '-', oil.toggle_float, desc = 'File Manager float' },
+    }
+  end,
 }
