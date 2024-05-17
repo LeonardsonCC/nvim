@@ -9,4 +9,5 @@ return {
   disable_plugin("nvim-neo-tree/neo-tree.nvim"),
   disable_plugin("akinsho/bufferline.nvim"),
   disable_plugin("folke/noice.nvim"),
+  disable_plugin("folke/flash.nvim"),
 }
