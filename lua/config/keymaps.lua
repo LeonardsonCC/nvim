@@ -15,3 +15,5 @@ vim.keymap.set("n", "<A-j>", "", { desc = "Move down" })
 vim.keymap.set("i", "<A-k>", "", { desc = "Move up" })
 vim.keymap.set("v", "<A-k>", "", { desc = "Move up" })
 vim.keymap.set("v", "<A-j>", "", { desc = "Move down" })
+
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic" })
