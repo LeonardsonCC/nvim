@@ -17,3 +17,8 @@ vim.keymap.set("v", "<A-k>", "", { desc = "Move up" })
 vim.keymap.set("v", "<A-j>", "", { desc = "Move down" })
 
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic" })
+
+-- Terminal mode
+-- vim.keymap.set("t", "<esc>", "<C-\\><C-N>", { silent = true })
+vim.keymap.set("t", "jk", "<C-\\><C-N>", { silent = true })
+vim.keymap.set("t", "kj", "<C-\\><C-N>", { silent = true })

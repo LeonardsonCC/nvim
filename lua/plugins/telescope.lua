@@ -15,6 +15,10 @@ return {
     --   end,
     -- },
   },
+  keys = {
+    { "<leader><space>", LazyVim.pick("files", { root = false }), desc = "Find Files" },
+    { "<leader>sg", LazyVim.pick("live_grep", { root = false }), desc = "Grep" },
+  },
   config = function()
     require("telescope").setup({
       defaults = {
