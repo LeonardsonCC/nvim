@@ -81,7 +81,7 @@ return {
 		dim_inactive = true,
 		on_highlights = function(hl, c)
 			beautyTelescope(hl, c)
-			beautyCmp(hl, c)
+			-- beautyCmp(hl, c)
 		end,
 	},
 	init = function()
