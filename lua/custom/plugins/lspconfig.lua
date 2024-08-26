@@ -51,6 +51,15 @@ return {
 				--
 				-- In this case, we create a function that lets us more easily define mappings specific
 				-- for LSP related items. It sets the mode, buffer and description for us each time.
+
+				-- signature
+				vim.keymap.set(
+					"i",
+					"<C-K>",
+					vim.lsp.buf.signature_help,
+					{ buffer = event.buf, desc = "LSP: Signature" }
+				)
+
 				local map = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
@@ -70,15 +79,19 @@ return {
 				-- Jump to the type of the word under your cursor.
 				--  Useful when you're not sure what type a variable is and you want to see
 				--  the definition of its *type*, not where it was *defined*.
-				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+				map("gD", require("telescope.builtin").lsp_type_definitions, "[G]oto [D]efinition")
 
 				-- Fuzzy find all the symbols in your current document.
 				--  Symbols are things like variables, functions, types, etc.
-				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+				map("<leader>cs", require("telescope.builtin").lsp_document_symbols, "[C]ode Document [S]ymbols")
 
 				-- Fuzzy find all the symbols in your current workspace.
 				--  Similar to document symbols, except searches over your entire project.
-				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
+				map(
+					"<leader>cw",
+					require("telescope.builtin").lsp_dynamic_workspace_symbols,
+					"[C]ode [W]orkspace Symbols"
+				)
 
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
@@ -89,7 +102,7 @@ return {
 				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
 				-- Show diagnostics
-				map("<leader>cd", vim.diagnostic.open_float, "[C]ode [A]ction")
+				map("<leader>cd", vim.diagnostic.open_float, "[C]ode [D]iagnostics")
 
 				-- WARN: This is not Goto Definition, this is Goto Declaration.
 				--  For example, in C this would take you to the header.
