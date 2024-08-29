@@ -19,10 +19,12 @@ return {
 			end,
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
-		{ "nvim-telescope/telescope-frecency.nvim" },
+		-- { "nvim-telescope/telescope-frecency.nvim" },
 
 		-- Useful for getting pretty icons, but requires a Nerd Font.
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+		{ "Snikimonkd/telescope-git-conflicts.nvim" },
+		{ "edolphin-ydf/goimpl.nvim" },
 	},
 	config = function()
 		-- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -57,6 +59,13 @@ return {
 			-- },
 			-- pickers = {}
 			extensions = {
+				fzf = {
+					fuzzy = true, -- false will only do exact matching
+					override_generic_sorter = true, -- override the generic sorter
+					override_file_sorter = true, -- override the file sorter
+					case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+					-- the default case_mode is "smart_case"
+				},
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
 				},
@@ -66,20 +75,14 @@ return {
 		-- Enable Telescope extensions if they are installed
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
-		pcall(require("telescope").load_extension, "frecency")
+		pcall(require("telescope").load_extension, "goimpl")
+		pcall(require("telescope").load_extension, "conflicts")
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-		-- vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
-		vim.keymap.set(
-			"n",
-			"<leader>sf",
-			-- idk why, but it keeps typing 'A' when start for the first time
-			"<cmd>Telescope frecency workspace=CWD<cr><bs>",
-			{ desc = "[S]earch [F]recency" }
-		)
+		vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
@@ -87,6 +90,14 @@ return {
 		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
+		-- Extensions
+		vim.keymap.set("n", "<leader>si", function()
+			require("telescope").extensions.goimpl.goimpl({})
+		end, { desc = "[S]earch [I]mplementation interface" })
+		vim.keymap.set("n", "<leader>sc", function()
+			require("telescope").extensions.conflicts.conflicts({})
+		end, { desc = "[S]earch [C]onflicts" })
 
 		-- Slightly advanced example of overriding default behavior and theme
 		vim.keymap.set("n", "<leader>/", function()
