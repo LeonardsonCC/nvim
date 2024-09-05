@@ -240,4 +240,6 @@ require("lazy").setup({
 	},
 })
 
+vim.keymap.set("n", "<leader>tn", "<cmd>set rnu!<cr>", { desc = "[T]oggle Line [N]umber" })
+
 -- vim: ts=2 sts=2 sw=2 et

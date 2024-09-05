@@ -26,6 +26,15 @@ return {
 			additional_vim_regex_highlighting = { "ruby" },
 		},
 		indent = { enable = true, disable = { "ruby" } },
+		incremental_selection = {
+			enable = true,
+			keymaps = {
+				init_selection = "<space>a",
+				node_incremental = "<space>a",
+				scope_incremental = "<c-s>",
+				node_decremental = "<space>A",
+			},
+		},
 	},
 	config = function(_, opts)
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
