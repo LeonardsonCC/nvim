@@ -12,6 +12,4 @@ return {
 			{ "-", "<cmd>Oil<cr>", desc = "File Manager" },
 		}
 	end,
-	-- Optional dependencies
-	dependencies = { { "echasnovski/mini.icons", opts = {} } },
 }
