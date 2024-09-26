@@ -31,17 +31,17 @@ map("n", "<leader>ds", vim.diagnostic.setloclist, { desc = "LSP Diagnostic locli
 -- tabufline
 map("n", "<leader>b", "<cmd>enew<CR>", { desc = "buffer new" })
 
-map("n", "<tab>", function()
-	require("nvchad.tabufline").next()
-end, { desc = "buffer goto next" })
-
-map("n", "<S-tab>", function()
-	require("nvchad.tabufline").prev()
-end, { desc = "buffer goto prev" })
-
-map("n", "<leader>x", function()
-	require("nvchad.tabufline").close_buffer()
-end, { desc = "buffer close" })
+-- map("n", "<tab>", function()
+-- 	require("nvchad.tabufline").next()
+-- end, { desc = "buffer goto next" })
+--
+-- map("n", "<S-tab>", function()
+-- 	require("nvchad.tabufline").prev()
+-- end, { desc = "buffer goto prev" })
+--
+-- map("n", "<leader>x", function()
+-- 	require("nvchad.tabufline").close_buffer()
+-- end, { desc = "buffer close" })
 
 -- Comment
 map("n", "<leader>/", "gcc", { desc = "Toggle Comment", remap = true })
@@ -120,3 +120,7 @@ map("n", "<leader>cc", function()
 		end
 	end
 end, { desc = "blankline jump to current context" })
+
+-- quickfix
+map("n", "]q", "<cmd>cn<cr>", { desc = "quickfix next" })
+map("n", "[q", "<cmd>cp<cr>", { desc = "quickfix prev" })

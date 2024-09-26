@@ -13,6 +13,7 @@ local on_attach = function(_, bufnr)
 	map("n", "gi", vim.lsp.buf.implementation, opts("Go to implementation"))
 	map("n", "gr", vim.lsp.buf.references, opts("Show references"))
 
+	map("n", "<leader>cd", vim.diagnostic.open_float, opts("Show Diagnostic"))
 	map("n", "<leader>cs", vim.lsp.buf.signature_help, opts("Show signature help"))
 	map("n", "<leader>cwa", vim.lsp.buf.add_workspace_folder, opts("[C]ode [W]orkspace [A]dd Folder"))
 	map("n", "<leader>cwr", vim.lsp.buf.remove_workspace_folder, opts("[C]ode [W]orkspace [R]emove Folder"))
@@ -34,6 +35,7 @@ local servers = {
 	"gopls",
 	"vtsls",
 	"terraformls",
+	"intelephense",
 }
 local nvlsp = require("nvchad.configs.lspconfig")
 
