@@ -1,5 +1,5 @@
 return {
-  "ruifm/gitlinker.nvim",
+  "linrongbin16/gitlinker.nvim",
   opts = {},
   dependencies = "nvim-lua/plenary.nvim",
   keys = {
