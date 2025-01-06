@@ -1,5 +1,15 @@
 return {
   "nvim-telescope/telescope.nvim",
+  -- opts = {
+  --   pickers = {
+  --     find_files = {
+  --       theme = "ivy",
+  --     },
+  --     live_grep = {
+  --       theme = "ivy",
+  --     },
+  --   },
+  -- },
   keys = {
     { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "[S]earch [H]elp" },
     { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "[S]earch [K]eymaps" },
