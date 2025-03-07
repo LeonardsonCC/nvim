@@ -13,3 +13,5 @@ vim.g.neovide_font_hinting = "none"
 vim.g.neovide_font_edging = "subpixelantialias"
 
 vim.opt.winbar = "%f"
+
+vim.g.snacks_animate = false
