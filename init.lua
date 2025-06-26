@@ -1,7 +1,3 @@
-if not vim.g.vscode then
-  return
-end
-
 vim.api.nvim_set_option("clipboard","unnamed")
 
 -- Bootstrap lazy.nvim
@@ -36,5 +32,10 @@ require("lazy").setup({
     notify = false,
   },
 })
+
+if not vim.g.vscode then
+  print("use vscode pls")
+  return
+end
 
 require("config.general")

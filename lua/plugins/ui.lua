@@ -12,4 +12,18 @@ vim.keymap.set("n", "<leader>un", function()
   end
 end)
 
+vim.keymap.set("n", "<leader>uf", function()
+  vscode.action("workbench.action.toggleFullScreen")
+end)
+
+vim.keymap.set("n", "<leader>ul", function()
+  vscode.action("workbench.action.toggleSidebarVisibility")
+end)
+vim.keymap.set("n", "<leader>uh", function()
+  vscode.action("workbench.action.toggleAuxiliaryBar")
+end)
+vim.keymap.set("n", "<leader>ub", function()
+  vscode.action("workbench.action.togglePanel")
+end)
+
 return {}
