@@ -1,7 +1,7 @@
 return {
   "Wansmer/treesj",
   keys = { "<space>m" },
-  dependencies = { "nvim-treesitter/nvim-treesitter" }, -- if you install parsers with `nvim-treesitter`
+  dependencies = { "nvim-treesitter/nvim-treesitter" },
   vscode = true,
   config = function()
     require("treesj").setup({})

@@ -1,13 +1,15 @@
 local vscode = require("vscode")
 
--- [C]ode
-vim.keymap.set({ "n" }, "gr", function()
-  vscode.notify("Go to references")
-  vscode.action("editor.action.goToReferences")
+vim.keymap.set("n", "gr", function()
+  vscode.action("references-view.findReferences")
 end)
-vim.keymap.set({ "n" }, "gd", function()
-  vscode.notify("Go to definition")
+
+vim.keymap.set("n", "gd", function()
   vscode.action("editor.action.revealDefinition")
+end)
+
+vim.keymap.set("n", "gi", function()
+  vscode.action("editor.action.goToImplementation")
 end)
 
 return {}
