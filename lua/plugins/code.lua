@@ -12,4 +12,11 @@ vim.keymap.set("n", "gi", function()
   vscode.action("editor.action.goToImplementation")
 end)
 
+vim.keymap.set("n", "]d", function()
+  vscode.action("editor.action.marker.next")
+end)
+vim.keymap.set("n", "[d", function()
+  vscode.action("editor.action.marker.previous")
+end)
+
 return {}

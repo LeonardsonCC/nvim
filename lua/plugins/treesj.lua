@@ -2,8 +2,9 @@ return {
   "Wansmer/treesj",
   keys = { "<space>m" },
   dependencies = { "nvim-treesitter/nvim-treesitter" },
-  vscode = true,
   config = function()
-    require("treesj").setup({})
+    require("treesj").setup({
+      max_join_length = 520,
+    })
   end,
 }
