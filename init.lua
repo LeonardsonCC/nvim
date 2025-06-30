@@ -38,4 +38,7 @@ if not vim.g.vscode then
   return
 end
 
+vim.cmd("set ignorecase")
+vim.cmd("set smartcase")
+
 require("config.general")
