@@ -22,14 +22,8 @@ vim.keymap.set("n", "<leader>sg", function()
 end)
 
 -- multi cursor
-vim.keymap.set({ "n", "x", "i" }, "<C-d>", function()
+vim.keymap.set({ "n", "x", "i", "v" }, "<C-i>", function()
   vscode.with_insert(function()
     vscode.action("editor.action.addSelectionToNextFindMatch")
-  end)
-end)
-
-vim.keymap.set({ "n", "x" }, "<leader>cr", function()
-  vscode.with_insert(function()
-    vscode.action("editor.action.refactor")
   end)
 end)
