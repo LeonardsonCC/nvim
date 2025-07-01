@@ -25,5 +25,12 @@ end)
 vim.keymap.set("n", "<leader>ub", function()
   vscode.action("workbench.action.togglePanel")
 end)
+vim.keymap.set("n", "<leader>ua", function()
+  if vscode.get_config("editor.cursorSmoothCaretAnimation") == "on" then
+    vscode.update_config("editor.cursorSmoothCaretAnimation", "off", "global")
+  else
+    vscode.update_config("editor.cursorSmoothCaretAnimation", "on", "global")
+  end
+end)
 
 return {}

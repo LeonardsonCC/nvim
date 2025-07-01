@@ -16,4 +16,11 @@ vim.keymap.set({"n", "v"}, "<leader>ghr", function()
     vscode.action('git.revertSelectedRanges')
 end, {})
 
+vim.keymap.set("n", "]g", function()
+    vscode.action('workbench.action.editor.nextChange')
+end, {})
+vim.keymap.set("n", "[g", function()
+    vscode.action('workbench.action.editor.previousChange')
+end, {})
+
 return {}

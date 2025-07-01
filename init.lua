@@ -20,6 +20,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+if not vim.g.vscode then
+  print("use vscode pls")
+  return
+end
+
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
@@ -32,11 +37,6 @@ require("lazy").setup({
     notify = false,
   },
 })
-
-if not vim.g.vscode then
-  print("use vscode pls")
-  return
-end
 
 vim.cmd("set ignorecase")
 vim.cmd("set smartcase")

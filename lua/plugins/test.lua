@@ -1,6 +1,5 @@
 local vscode = require("vscode")
 
-print("Loading test plugin...")
 vim.keymap.set("n", "<leader>tr", function()
   vscode.action("testing.runAtCursor")
 end)

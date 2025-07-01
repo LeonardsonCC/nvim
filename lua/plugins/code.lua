@@ -16,7 +16,17 @@ vim.keymap.set("n", "]d", function()
   vscode.action("editor.action.marker.next")
 end)
 vim.keymap.set("n", "[d", function()
-  vscode.action("editor.action.marker.previous")
+  vscode.action("editor.action.marker.prev")
+end)
+
+vim.keymap.set("n", "<leader>ca", function()
+  vscode.action("editor.action.quickFix")
+end)
+vim.keymap.set("n", "<leader>ci", function()
+  vscode.action("editor.action.organizeImports")
+end)
+vim.keymap.set("n", "<leader>cr", function()
+  vscode.action("editor.action.rename")
 end)
 
 return {}
