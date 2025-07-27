@@ -1,44 +1,143 @@
-vim.api.nvim_set_option("clipboard","unnamed")
+-- Neovim configuration based on kickstart.nvim
+-- This is a modular configuration with plugins split into separate files
 
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
+-- Set leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+-- Check if we have nerd font
+vim.g.have_nerd_font = false
+
+-- Basic vim options
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.mouse = "a"
+vim.opt.showmode = false
+
+-- Clipboard
+vim.opt.clipboard = "unnamedplus"
+
+-- Indenting
+vim.opt.breakindent = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+
+-- Search
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- Signcolumn
+vim.opt.signcolumn = "yes"
+
+-- Update time
+vim.opt.updatetime = 250
+vim.opt.timeoutlen = 300
+
+-- Window splitting
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
+-- List chars
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+
+-- Preview substitutions
+vim.opt.inccommand = "split"
+
+-- Cursor line
+vim.opt.cursorline = true
+
+-- Scroll off
+vim.opt.scrolloff = 10
+
+-- Basic keymaps
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- LazyVim style diagnostic keymaps
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
+vim.keymap.set("n", "]e", function()
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { desc = "Next Error" })
+vim.keymap.set("n", "[e", function()
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { desc = "Prev Error" })
+vim.keymap.set("n", "]w", function()
+  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
+end, { desc = "Next Warning" })
+vim.keymap.set("n", "[w", function()
+  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
+end, { desc = "Prev Warning" })
+
+-- Exit terminal mode with escape
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+-- LazyVim style window navigation
+vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Go to Left Window" })
+vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window" })
+vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window" })
+vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window" })
+
+-- LazyVim style window management
+vim.keymap.set("n", "<leader>-", "<C-w>s", { desc = "Split Window Below" })
+vim.keymap.set("n", "<leader>|", "<C-w>v", { desc = "Split Window Right" })
+vim.keymap.set("n", "<leader>wd", "<C-w>c", { desc = "Delete Window" })
+
+-- Save file (LazyVim style)
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
+-- [[ Install lazy.nvim plugin manager ]]
+local lazypath = vim.fn.stdpath("config") .. "/vendor/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
-if not vim.g.vscode then
-  print("use vscode pls")
-  return
-end
-
--- Setup lazy.nvim
-require("lazy").setup({
-  spec = {
-    { import = "plugins" },
+-- [[ Configure lazy.nvim with local plugins directory ]]
+require("lazy").setup("plugins", {
+  -- Configure lazy.nvim to use local plugins directory
+  install = {
+    colorscheme = { "tokyonight" },
   },
-  install = { colorscheme = { "habamax" } },
   checker = { enabled = false },
   change_detection = {
     enabled = false,
     notify = false,
   },
+  -- Set the plugins directory to be inside the config folder
+  root = vim.fn.stdpath("config") .. "/vendor",
+  ui = {
+    icons = vim.g.have_nerd_font and {} or {
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      require = "🌙",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤 ",
+    },
+  },
 })
-
-vim.cmd("set ignorecase")
-vim.cmd("set smartcase")
-
-require("config.general")
