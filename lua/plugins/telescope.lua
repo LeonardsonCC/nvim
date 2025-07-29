@@ -29,21 +29,21 @@ return {
     local builtin = require("telescope.builtin")
 
     -- LazyVim style find keymaps (f for find)
-    vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
-    vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent Files" })
-    vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
-    vim.keymap.set("n", "<leader>fc", function()
-      builtin.find_files({ cwd = vim.fn.stdpath("config") })
-    end, { desc = "Find Config Files" })
-
-    -- Search keymaps (s for search)
-    vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by Grep" })
-    vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current Word" })
-    vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
+    -- vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find Files" })
+    -- vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent Files" })
+    -- vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find Buffers" })
+    -- vim.keymap.set("n", "<leader>fc", function()
+    --   builtin.find_files({ cwd = vim.fn.stdpath("config") })
+    -- end, { desc = "Find Config Files" })
+    --
+    -- -- Search keymaps (s for search)
+    -- vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "Search by Grep" })
+    -- vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "Search current Word" })
+    -- vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "Search Help" })
     vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "Search Keymaps" })
     vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "Search Select Telescope" })
     vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "Search Diagnostics" })
-    vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "Search Resume" })
+    -- vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "Search Resume" })
 
     -- Buffer search
     vim.keymap.set("n", "<leader>/", function()

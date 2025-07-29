@@ -37,6 +37,7 @@ vim.opt.timeoutlen = 300
 -- Window splitting
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.winborder = "rounded"
 
 -- List chars
 vim.opt.list = true
@@ -47,6 +48,7 @@ vim.opt.inccommand = "split"
 
 -- Cursor line
 vim.opt.cursorline = true
+vim.opt.guicursor = ""
 
 -- Scroll off
 vim.opt.scrolloff = 10
@@ -55,19 +57,23 @@ vim.opt.scrolloff = 10
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- LazyVim style diagnostic keymaps
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
+vim.keymap.set("n", "]d", function()
+  vim.diagnostic.jump({ count = 1 })
+end, { desc = "Next Diagnostic" })
+vim.keymap.set("n", "[d", function()
+  vim.diagnostic.jump({ count = 1 })
+end, { desc = "Prev Diagnostic" })
 vim.keymap.set("n", "]e", function()
-  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.ERROR })
+  vim.diagnostic.jump({ severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Next Error" })
 vim.keymap.set("n", "[e", function()
-  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.ERROR })
+  vim.diagnostic.jump({ severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Prev Error" })
 vim.keymap.set("n", "]w", function()
-  vim.diagnostic.goto_next({ severity = vim.diagnostic.severity.WARN })
+  vim.diagnostic.jump({ severity = vim.diagnostic.severity.WARN })
 end, { desc = "Next Warning" })
 vim.keymap.set("n", "[w", function()
-  vim.diagnostic.goto_prev({ severity = vim.diagnostic.severity.WARN })
+  vim.diagnostic.jump({ severity = vim.diagnostic.severity.WARN })
 end, { desc = "Prev Warning" })
 
 -- Exit terminal mode with escape
@@ -97,7 +103,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- [[ Install lazy.nvim plugin manager ]]
-local lazypath = vim.fn.stdpath("config") .. "/vendor/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -122,7 +128,7 @@ require("lazy").setup("plugins", {
     notify = false,
   },
   -- Set the plugins directory to be inside the config folder
-  root = vim.fn.stdpath("config") .. "/vendor",
+  -- root = vim.fn.stdpath("config") .. "/vendor",
   ui = {
     icons = vim.g.have_nerd_font and {} or {
       cmd = "⌘",

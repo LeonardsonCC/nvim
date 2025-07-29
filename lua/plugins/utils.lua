@@ -12,5 +12,9 @@ return {
   "tpope/vim-sleuth",
 
   -- Neoconf: config file
-  { "folke/neoconf.nvim", opts = {} },
+  {
+    "folke/neoconf.nvim",
+    opts = {},
+    cond = false,
+  },
 }
