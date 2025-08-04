@@ -21,6 +21,7 @@ return {
     vim.keymap.set("n", "<leader>fr", "<cmd>Pick resume<cr>", { desc = "Reopen" })
     vim.keymap.set("n", "<leader>sr", "<cmd>Pick resume<cr>", { desc = "Reopen" })
     vim.keymap.set("n", "<leader>fb", "<cmd>Pick buffers<cr>", { desc = "Find Buffers" })
+    vim.keymap.set("n", "<leader><space>", "<cmd>Pick buffers<cr>", { desc = "Find Buffers" })
     vim.keymap.set("n", "<leader>sg", "<cmd>Pick grep_live<cr>", { desc = "Grep" })
     vim.keymap.set("n", "<leader>sg", "<cmd>Pick grep_live<cr>", { desc = "Grep" })
     vim.keymap.set("n", "<leader>sh", "<cmd>Pick help<cr>", { desc = "Search Help" })
