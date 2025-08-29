@@ -4,6 +4,7 @@ return {
     { "williamboman/mason.nvim", config = true },
     "williamboman/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "echasnovski/mini.nvim",
     -- { "j-hui/fidget.nvim", opts = {} },
     { "folke/lazydev.nvim", opts = {} },
     -- { "nvim-java/nvim-java" },
@@ -17,16 +18,32 @@ return {
         end
 
         -- LazyVim style LSP keymaps
-        map("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
-        map("gr", require("telescope.builtin").lsp_references, "References")
-        map("gI", require("telescope.builtin").lsp_implementations, "Goto Implementation")
-        map("gy", require("telescope.builtin").lsp_type_definitions, "Goto Type Definition")
-        map("gD", vim.lsp.buf.declaration, "Goto Declaration")
+        map("gd", function()
+          require("mini.extra").pickers.lsp({ scope = "definition" })
+        end, "Goto Definition")
+        map("gr", function()
+          require("mini.extra").pickers.lsp({ scope = "references" })
+        end, "References")
+        map("gI", function()
+          require("mini.extra").pickers.lsp({ scope = "implementation" })
+        end, "Goto Implementation")
+        map("gy", function()
+          require("mini.extra").pickers.lsp({ scope = "type_definition" })
+        end, "Goto Type Definition")
+        map("gD", function()
+          require("mini.extra").pickers.lsp({ scope = "declaration" })
+        end, "Goto Declaration")
         map("K", vim.lsp.buf.hover, "Hover")
         map("gK", vim.lsp.buf.signature_help, "Signature Help")
         map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
         map("<leader>cr", vim.lsp.buf.rename, "Rename")
         map("<leader>cd", vim.diagnostic.open_float, "Line Diagnostics")
+        map("<leader>csd", function()
+          require("mini.extra").pickers.lsp({ scope = "document_symbol" })
+        end, "Search document symbol")
+        map("<leader>csw", function()
+          require("mini.extra").pickers.lsp({ scope = "workspace_symbol" })
+        end, "Search workspace symbol")
 
         local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client and client.server_capabilities.documentHighlightProvider then

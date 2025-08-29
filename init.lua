@@ -6,7 +6,10 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- Check if we have nerd font
-vim.g.have_nerd_font = false
+vim.g.have_nerd_font = true
+
+-- No wrap
+vim.opt.wrap = false
 
 -- Basic vim options
 vim.opt.number = true
@@ -55,6 +58,10 @@ vim.opt.scrolloff = 10
 
 -- Basic keymaps
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+
+-- Visual useful
+vim.keymap.set({ "v" }, ">", ">gv")
+vim.keymap.set({ "v" }, "<", "<gv")
 
 -- LazyVim style diagnostic keymaps
 vim.keymap.set("n", "]d", function()
@@ -147,3 +154,7 @@ require("lazy").setup("plugins", {
     },
   },
 })
+
+vim.g.pp = function(any)
+  print(vim.inspect(any))
+end

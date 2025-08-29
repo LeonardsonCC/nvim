@@ -2,9 +2,18 @@ return {
   "echasnovski/mini.nvim",
   config = function()
     local statusline = require("mini.statusline")
-    statusline.setup({ use_icons = vim.g.have_nerd_font })
+    statusline.setup({ use_icons = true })
     statusline.section_location = function()
       return "%2l:%-2v"
+    end
+    statusline.section_filename = function(args)
+      -- In terminal always use plain name
+      if vim.bo.buftype == "terminal" then
+        return "%t"
+      else
+        -- Use relative path always
+        return "%f%m%r"
+      end
     end
 
     require("mini.ai").setup({
@@ -15,7 +24,9 @@ return {
       mappings = { toggle = "gs", split = "", join = "" },
     })
     require("mini.pairs").setup()
+
     require("mini.pick").setup()
+    require("mini.extra").setup()
 
     vim.keymap.set("n", "<leader>ff", "<cmd>Pick files<cr>", {})
     vim.keymap.set("n", "<leader>fr", "<cmd>Pick resume<cr>", { desc = "Reopen" })
